@@ -6,7 +6,7 @@
 /*   By: ntoniolo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/21 11:53:46 by ntoniolo          #+#    #+#             */
-/*   Updated: 2017/08/16 09:07:10 by ntoniolo         ###   ########.fr       */
+/*   Updated: 2017/08/16 11:40:56 by ntoniolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,6 +80,7 @@ typedef struct	s_elem
 typedef struct	s_env
 {
 	int			flag;
+	int			a;
 	int			nb_arg;
 	int			cur_dir;
 	int			(*cmp)(void *, void *);
@@ -90,6 +91,9 @@ typedef struct	s_env
 	t_list		*not_here;
 }				t_env;
 
+void			ls_btree_verif_dir(void *env, void *ptr);
+void			btree_apply_infix_env(void *env, t_btree *node, void (*apply)(void *, void *));
+
 int				ls_pars_flag(t_env *e, char **argv, int *i);
 int				ls_pars_arg(t_env *e, int argc, char **argv);
 
@@ -98,6 +102,7 @@ void			ls_print_init(t_env *e);
 void			ls_print_not_here(t_env *e);
 
 int				cmp_elem_alphabet(void *s, void *s2);
+int				cmp_elem_time(void *node, void *child);
 int				cmp_elem_alphabet_reverse(void *s, void *s2);
 int				cmp_str_alphabet(void *s, void *s2);
 int				cmp_str_alphabet_reverse(void *s, void *s2);

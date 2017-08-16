@@ -6,7 +6,7 @@
 /*   By: ntoniolo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/16 08:05:40 by ntoniolo          #+#    #+#             */
-/*   Updated: 2017/08/16 08:33:53 by ntoniolo         ###   ########.fr       */
+/*   Updated: 2017/08/16 11:47:25 by ntoniolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,4 +106,15 @@ int			cmp_str_alphabet_reverse(void *s, void *s2)
 	else if (!str[i])
 		return (1);
 	return (0);
+}
+
+int			cmp_elem_time(void *node_elem, void *child_elem)
+{
+	t_elem *node;
+	t_elem *child;
+
+	node = (t_elem *)node_elem;
+	child = (t_elem *)child_elem;
+	return ((node->mtime < child->mtime));
+
 }

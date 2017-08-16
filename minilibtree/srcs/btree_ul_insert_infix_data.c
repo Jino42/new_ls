@@ -1,41 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   btree_ul_insert_infix_data.c                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ntoniolo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/06/21 11:53:16 by ntoniolo          #+#    #+#             */
-/*   Updated: 2017/08/16 09:16:38 by ntoniolo         ###   ########.fr       */
+/*   Created: 2017/08/16 11:26:21 by ntoniolo          #+#    #+#             */
+/*   Updated: 2017/08/16 11:27:00 by ntoniolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_ls.h"
+#include "btree.h"
 
-static void	ls_print_arg(t_env *e)
+void		btree_ul_insert_infix_data(t_btree **root, void *item,
+		size_t (*cmpf)(void *, void *))
 {
-	if (e->not_here)
+	if (!*root)
 	{
-		ls_print_not_here(e);
-		e->not_here = NULL;//free
+		*root = btree_create_leaf(item);
+		return ;
 	}
-	if (e->file)
-	{
-		ls_print(e);
-		e->cur_dir++;//free
-		e->file = NULL;
-	}
-}
-
-int			main(int argc, char **argv)
-{
-	t_env	e;
-
-	ft_bzero(&e, sizeof(t_env));
-	if (!(ls_pars_arg(&e, argc, argv))) //Need2Free
-		return (1);
-	ls_print_arg(&e);
-	if (!(ls_loop(&e)))
-		return (1);
-	return (1);
+	if (cmpf(item, (*root)->content) <= 0)
+		btree_ul_insert_infix_data(&(*root)->left, item, cmpf);
+	else
+		btree_ul_insert_infix_data(&(*root)->right, item, cmpf);
 }

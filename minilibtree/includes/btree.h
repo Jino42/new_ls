@@ -6,7 +6,7 @@
 /*   By: ntoniolo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/09 18:02:25 by ntoniolo          #+#    #+#             */
-/*   Updated: 2017/08/14 11:29:26 by ntoniolo         ###   ########.fr       */
+/*   Updated: 2017/08/16 11:29:38 by ntoniolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,5 +54,7 @@ void			*btree_search_item(t_btree *root, void *ref,
 
 void			btree_insert_infix_data(t_btree **root, void *item,
 		int (*cmpf)(void *, void*));
+void			btree_ul_insert_infix_data(t_btree **root, void *item,
+		size_t (*cmpf)(void *, void*));
 
 #endif

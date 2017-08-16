@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstinsert_alphabet.c                            :+:      :+:    :+:   */
+/*   ft_lstinsert_cmp.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ntoniolo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/06/21 23:39:15 by ntoniolo          #+#    #+#             */
-/*   Updated: 2017/08/16 08:42:15 by ntoniolo         ###   ########.fr       */
+/*   Created: 2017/08/16 11:36:55 by ntoniolo          #+#    #+#             */
+/*   Updated: 2017/08/16 11:37:52 by ntoniolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,14 +20,14 @@ static void	init(t_list **lst, t_list **past, t_list **cur, t_list *new)
 		*lst = new;
 }
 
-void		ft_lstinsert_cmp(t_list **lst, t_list *new, int (*cmp)(void *, void *))
+void		ft_lstinsert_cmp(t_list **lst, t_list *new,
+						int (*cmp)(void *, void *))
 {
 	t_list *past;
 	t_list *cur;
 
 	if (lst == NULL || new == NULL)
 		return ;
-
 	init(lst, &past, &cur, new);
 	while (cur)
 	{

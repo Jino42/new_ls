@@ -6,7 +6,7 @@
 /*   By: ntoniolo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/21 17:59:18 by ntoniolo          #+#    #+#             */
-/*   Updated: 2017/08/16 09:11:08 by ntoniolo         ###   ########.fr       */
+/*   Updated: 2017/08/16 11:35:59 by ntoniolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ static int		ls_pars_files(t_env *e, char **argv, int i)
 	return (1);
 }
 
-void			ls_assign_ptr_fun(t_env *e)
+static void		ls_assign_ptr_fun(t_env *e)
 {
 	if (e->flag & FLAG_RV)
 	{
@@ -71,6 +71,10 @@ void			ls_assign_ptr_fun(t_env *e)
 	{
 		e->cmp = &cmp_elem_alphabet;
 		e->cmp_str = &cmp_str_alphabet;
+	}
+	if (e->flag & FLAG_T)
+	{
+		e->cmp = &cmp_elem_time;
 	}
 }
 

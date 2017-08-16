@@ -6,7 +6,7 @@
 #    By: ntoniolo <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/02 18:45:43 by ntoniolo          #+#    #+#              #
-#    Updated: 2017/08/16 09:06:53 by ntoniolo         ###   ########.fr        #
+#    Updated: 2017/08/16 11:42:32 by ntoniolo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,7 +29,8 @@ SRC = main.c \
 	  ls_type_and_file_right.c \
 	  ls_stat_create_leaf.c \
 	  ls_pars_arg.c \
-	  ls_pars_flag.c
+	  ls_pars_flag.c \
+	  ls_btree_verif_dir.c \
 
 SRC_DIR = srcs/
 
@@ -51,7 +52,7 @@ OBJ_DIR = objs/
 all: $(OBJ_DIR) $(NAME)
 
 $(NAME): lib $(addprefix $(OBJ_DIR), $(OBJET)) $(INC_FILES)
-	@$(CC) $(MODE) -I$(INC) $(addprefix $(OBJ_DIR), $(OBJET)) -L./$(DIR_LFT) -lft -L./$(DIR_TREE) -lbtree -o $(NAME)
+	@$(CC) $(MODE) $(FLAGS) -I$(INC) $(addprefix $(OBJ_DIR), $(OBJET)) -L./$(DIR_LFT) -lft -L./$(DIR_TREE) -lbtree -o $(NAME)
 	@echo "\033[4m\033[1m\033[32m>$(NAME) done.\033[0m"
 
 $(OBJ_DIR) :
