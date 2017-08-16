@@ -1,0 +1,372 @@
+total 464
+-rwxrwxrwx   1 ntoniolo  2016_paris    2373 Aug 15 10:10 Makefile
+-rwxrwxrwx   1 ntoniolo  2016_paris       9 Aug  9 17:38 auteur
+-rwxrwxrwx   1 ntoniolo  2016_paris      36 Aug  9 17:38 boucle_leaks.sh
+-rwxr-xr-x   1 ntoniolo  2016_paris   67108 Aug 16 03:33 ft_ls
+-rwxrwxrwx   1 ntoniolo  2016_paris  114744 Aug  9 17:38 ft_ls_test
+drwxrwxrwx   4 ntoniolo  2016_paris     136 Aug 16 03:28 includes
+drwxrwxrwx   9 ntoniolo  2016_paris     306 Aug 16 02:35 libft
+drwxrwxrwx   3 ntoniolo  2016_paris     102 Aug  9 17:38 libs
+-rwxrwxrwx   1 ntoniolo  2016_paris    2079 Aug 15 08:30 ls_print.c
+-rwxrwxrwx   1 ntoniolo  2016_paris    1647 Aug 15 08:29 ls_print_basic.c
+-rwxrwxrwx   1 ntoniolo  2016_paris    2230 Aug 15 08:29 ls_print_l.c
+drwxrwxrwx   9 ntoniolo  2016_paris     306 Aug 16 02:35 minilibtree
+drwxr-xr-x  12 ntoniolo  2016_paris     408 Aug 16 03:33 objs
+drwxr-xr-x  14 ntoniolo  2016_paris     476 Aug 15 10:47 sandbox
+drwxrwxrwx  17 ntoniolo  2016_paris     578 Aug 16 03:33 srcs
+-rwxrwxrwx   1 ntoniolo  2016_paris       0 Aug 16 03:33 testls
+-rwxrwxrwx   1 ntoniolo  2016_paris   21233 Aug 16 03:33 testlsme
+
+./includes:
+total 8
+-rwxrwxrwx  1 ntoniolo  2016_paris  2843 Aug 16 03:28 ft_ls.h
+
+./libft:
+total 632
+-rwxrwxrwx    1 ntoniolo  2016_paris    3074 Aug  9 17:38 Makefile
+-rwxrwxrwx    1 ntoniolo  2016_paris       9 Aug  9 17:38 auteur
+drwxrwxrwx  133 ntoniolo  2016_paris    4522 Aug 16 02:35 basic
+drwxrwxrwx    3 ntoniolo  2016_paris     102 Aug  9 17:38 includes
+-rw-r--r--    1 ntoniolo  2016_paris  314504 Aug 16 03:33 libft.a
+drwxrwxrwx   31 ntoniolo  2016_paris    1054 Aug 16 02:35 printf_fun
+drwxrwxrwx   26 ntoniolo  2016_paris     884 Aug 16 02:35 srcs
+
+./libft/basic:
+total 1056
+-rwxrwxrwx  1 ntoniolo  2016_paris   992 Aug  9 17:38 ft_abs.c
+-rw-r--r--  1 ntoniolo  2016_paris  2252 Aug 16 02:35 ft_abs.o
+-rwxrwxrwx  1 ntoniolo  2016_paris  1344 Aug  9 17:38 ft_atoi.c
+-rw-r--r--  1 ntoniolo  2016_paris  2920 Aug 16 02:35 ft_atoi.o
+-rwxrwxrwx  1 ntoniolo  2016_paris  1528 Aug  9 17:38 ft_atoi_base.c
+-rw-r--r--  1 ntoniolo  2016_paris  3272 Aug 16 02:35 ft_atoi_base.o
+-rwxrwxrwx  1 ntoniolo  2016_paris   982 Aug  9 17:38 ft_bzero.c
+-rw-r--r--  1 ntoniolo  2016_paris  2496 Aug 16 02:35 ft_bzero.o
+-rwxrwxrwx  1 ntoniolo  2016_paris   984 Aug  9 17:38 ft_error.c
+-rw-r--r--  1 ntoniolo  2016_paris  2312 Aug 16 02:35 ft_error.o
+-rwxrwxrwx  1 ntoniolo  2016_paris  1019 Aug  9 17:38 ft_isalnum.c
+-rw-r--r--  1 ntoniolo  2016_paris  2372 Aug 16 02:35 ft_isalnum.o
+-rwxrwxrwx  1 ntoniolo  2016_paris  1008 Aug  9 17:38 ft_isalpha.c
+-rw-r--r--  1 ntoniolo  2016_paris  2304 Aug 16 02:35 ft_isalpha.o
+-rwxrwxrwx  1 ntoniolo  2016_paris   978 Aug  9 17:38 ft_isascii.c
+-rw-r--r--  1 ntoniolo  2016_paris  2268 Aug 16 02:35 ft_isascii.o
+-rwxrwxrwx  1 ntoniolo  2016_paris   980 Aug  9 17:38 ft_isdigit.c
+-rw-r--r--  1 ntoniolo  2016_paris  2268 Aug 16 02:35 ft_isdigit.o
+-rwxrwxrwx  1 ntoniolo  2016_paris   979 Aug  9 17:38 ft_isprint.c
+-rw-r--r--  1 ntoniolo  2016_paris  2268 Aug 16 02:35 ft_isprint.o
+-rwxrwxrwx  1 ntoniolo  2016_paris  1401 Aug  9 17:38 ft_itoa.c
+-rw-r--r--  1 ntoniolo  2016_paris  3184 Aug 16 02:35 ft_itoa.o
+-rwxrwxrwx  1 ntoniolo  2016_paris  1554 Aug  9 17:38 ft_itoa_base.c
+-rw-r--r--  1 ntoniolo  2016_paris  3388 Aug 16 02:35 ft_itoa_base.o
+-rwxrwxrwx  1 ntoniolo  2016_paris  1020 Aug  9 17:38 ft_lstadd.c
+-rw-r--r--  1 ntoniolo  2016_paris  2796 Aug 16 02:35 ft_lstadd.o
+-rwxrwxrwx  1 ntoniolo  2016_paris  1123 Aug  9 17:38 ft_lstdel.c
+-rw-r--r--  1 ntoniolo  2016_paris  2964 Aug 16 02:35 ft_lstdel.o
+-rwxrwxrwx  1 ntoniolo  2016_paris  1106 Aug  9 17:38 ft_lstdelone.c
+-rw-r--r--  1 ntoniolo  2016_paris  2932 Aug 16 02:35 ft_lstdelone.o
+-rwxrwxrwx  1 ntoniolo  2016_paris  1096 Aug  9 17:38 ft_lstinsert.c
+-rw-r--r--  1 ntoniolo  2016_paris  2888 Aug 16 02:35 ft_lstinsert.o
+-rwxrwxrwx  1 ntoniolo  2016_paris  1027 Aug  9 17:38 ft_lstiter.c
+-rw-r--r--  1 ntoniolo  2016_paris  2832 Aug 16 02:35 ft_lstiter.o
+-rwxrwxrwx  1 ntoniolo  2016_paris  1341 Aug  9 17:38 ft_lstmap.c
+-rw-r--r--  1 ntoniolo  2016_paris  3216 Aug 16 02:35 ft_lstmap.o
+-rwxrwxrwx  1 ntoniolo  2016_paris  1345 Aug  9 17:38 ft_lstnew.c
+-rw-r--r--  1 ntoniolo  2016_paris  3136 Aug 16 02:35 ft_lstnew.o
+-rwxrwxrwx  1 ntoniolo  2016_paris  1100 Aug  9 17:38 ft_memalloc.c
+-rw-r--r--  1 ntoniolo  2016_paris  2688 Aug 16 02:35 ft_memalloc.o
+-rwxrwxrwx  1 ntoniolo  2016_paris  1288 Aug  9 17:38 ft_memccpy.c
+-rw-r--r--  1 ntoniolo  2016_paris  3024 Aug 16 02:35 ft_memccpy.o
+-rwxrwxrwx  1 ntoniolo  2016_paris  1131 Aug  9 17:38 ft_memchr.c
+-rw-r--r--  1 ntoniolo  2016_paris  2792 Aug 16 02:35 ft_memchr.o
+-rwxrwxrwx  1 ntoniolo  2016_paris  1191 Aug  9 17:38 ft_memcmp.c
+-rw-r--r--  1 ntoniolo  2016_paris  2848 Aug 16 02:35 ft_memcmp.o
+-rwxrwxrwx  1 ntoniolo  2016_paris  1218 Aug  9 17:38 ft_memcpy.c
+-rw-r--r--  1 ntoniolo  2016_paris  2828 Aug 16 02:35 ft_memcpy.o
+-rwxrwxrwx  1 ntoniolo  2016_paris   993 Aug  9 17:38 ft_memdel.c
+-rw-r--r--  1 ntoniolo  2016_paris  2272 Aug 16 02:35 ft_memdel.o
+-rwxrwxrwx  1 ntoniolo  2016_paris  1266 Aug  9 17:38 ft_memmove.c
+-rw-r--r--  1 ntoniolo  2016_paris  2928 Aug 16 02:35 ft_memmove.o
+-rwxrwxrwx  1 ntoniolo  2016_paris  1076 Aug  9 17:38 ft_memset.c
+-rw-r--r--  1 ntoniolo  2016_paris  2724 Aug 16 02:35 ft_memset.o
+-rwxrwxrwx  1 ntoniolo  2016_paris   959 Aug  9 17:38 ft_putchar.c
+-rw-r--r--  1 ntoniolo  2016_paris  2276 Aug 16 02:35 ft_putchar.o
+-rwxrwxrwx  1 ntoniolo  2016_paris   971 Aug  9 17:38 ft_putchar_fd.c
+-rw-r--r--  1 ntoniolo  2016_paris  2352 Aug 16 02:35 ft_putchar_fd.o
+-rwxrwxrwx  1 ntoniolo  2016_paris  1006 Aug  9 17:38 ft_putendl.c
+-rw-r--r--  1 ntoniolo  2016_paris  2352 Aug 16 02:35 ft_putendl.o
+-rwxrwxrwx  1 ntoniolo  2016_paris  1031 Aug  9 17:38 ft_putendl_fd.c
+-rw-r--r--  1 ntoniolo  2016_paris  2448 Aug 16 02:35 ft_putendl_fd.o
+-rwxrwxrwx  1 ntoniolo  2016_paris  1130 Aug  9 17:38 ft_putnbr.c
+-rw-r--r--  1 ntoniolo  2016_paris  2516 Aug 16 02:35 ft_putnbr.o
+-rwxrwxrwx  1 ntoniolo  2016_paris  1169 Aug  9 17:38 ft_putnbr_fd.c
+-rw-r--r--  1 ntoniolo  2016_paris  2620 Aug 16 02:35 ft_putnbr_fd.o
+-rwxrwxrwx  1 ntoniolo  2016_paris  1038 Aug  9 17:38 ft_putstr.c
+-rw-r--r--  1 ntoniolo  2016_paris  2456 Aug 16 02:35 ft_putstr.o
+-rwxrwxrwx  1 ntoniolo  2016_paris  1004 Aug  9 17:38 ft_putstr_fd.c
+-rw-r--r--  1 ntoniolo  2016_paris  2456 Aug 16 02:35 ft_putstr_fd.o
+-rwxrwxrwx  1 ntoniolo  2016_paris  1223 Aug  9 17:38 ft_realloc.c
+-rw-r--r--  1 ntoniolo  2016_paris  2824 Aug 16 02:35 ft_realloc.o
+-rwxrwxrwx  1 ntoniolo  2016_paris  1088 Aug  9 17:38 ft_strcat.c
+-rw-r--r--  1 ntoniolo  2016_paris  2548 Aug 16 02:35 ft_strcat.o
+-rwxrwxrwx  1 ntoniolo  2016_paris  1112 Aug  9 17:38 ft_strchr.c
+-rw-r--r--  1 ntoniolo  2016_paris  2540 Aug 16 02:35 ft_strchr.o
+-rwxrwxrwx  1 ntoniolo  2016_paris  1040 Aug  9 17:38 ft_strclr.c
+-rw-r--r--  1 ntoniolo  2016_paris  2408 Aug 16 02:35 ft_strclr.o
+-rwxrwxrwx  1 ntoniolo  2016_paris  1173 Aug  9 17:38 ft_strcmp.c
+-rw-r--r--  1 ntoniolo  2016_paris  2668 Aug 16 02:35 ft_strcmp.o
+-rwxrwxrwx  1 ntoniolo  2016_paris  1042 Aug  9 17:38 ft_strcpy.c
+-rw-r--r--  1 ntoniolo  2016_paris  2464 Aug 16 02:35 ft_strcpy.o
+-rwxrwxrwx  1 ntoniolo  2016_paris   985 Aug  9 17:38 ft_strdel.c
+-rw-r--r--  1 ntoniolo  2016_paris  2320 Aug 16 02:35 ft_strdel.o
+-rwxrwxrwx  1 ntoniolo  2016_paris  1110 Aug  9 17:38 ft_strdup.c
+-rw-r--r--  1 ntoniolo  2016_paris  2512 Aug 16 02:35 ft_strdup.o
+-rwxrwxrwx  1 ntoniolo  2016_paris  1079 Aug  9 17:38 ft_strequ.c
+-rw-r--r--  1 ntoniolo  2016_paris  2456 Aug 16 02:35 ft_strequ.o
+-rwxrwxrwx  1 ntoniolo  2016_paris   983 Aug  9 17:38 ft_striter.c
+-rw-r--r--  1 ntoniolo  2016_paris  2388 Aug 16 02:35 ft_striter.o
+-rwxrwxrwx  1 ntoniolo  2016_paris  1047 Aug  9 17:38 ft_striteri.c
+-rw-r--r--  1 ntoniolo  2016_paris  2512 Aug 16 02:35 ft_striteri.o
+-rwxrwxrwx  1 ntoniolo  2016_paris  1284 Aug  9 17:38 ft_strjoin.c
+-rw-r--r--  1 ntoniolo  2016_paris  2864 Aug 16 02:35 ft_strjoin.o
+-rwxrwxrwx  1 ntoniolo  2016_paris  1330 Aug  9 17:38 ft_strlcat.c
+-rw-r--r--  1 ntoniolo  2016_paris  3116 Aug 16 02:35 ft_strlcat.o
+-rwxrwxrwx  1 ntoniolo  2016_paris  1000 Aug  9 17:38 ft_strlen.c
+-rw-r--r--  1 ntoniolo  2016_paris  2608 Aug 16 02:35 ft_strlen.o
+-rwxrwxrwx  1 ntoniolo  2016_paris  1165 Aug  9 17:38 ft_strmap.c
+-rw-r--r--  1 ntoniolo  2016_paris  2704 Aug 16 02:35 ft_strmap.o
+-rwxrwxrwx  1 ntoniolo  2016_paris  1193 Aug  9 17:38 ft_strmapi.c
+-rw-r--r--  1 ntoniolo  2016_paris  2720 Aug 16 02:35 ft_strmapi.o
+-rwxrwxrwx  1 ntoniolo  2016_paris  1138 Aug  9 17:38 ft_strncat.c
+-rw-r--r--  1 ntoniolo  2016_paris  2848 Aug 16 02:35 ft_strncat.o
+-rwxrwxrwx  1 ntoniolo  2016_paris  1219 Aug  9 17:38 ft_strncmp.c
+-rw-r--r--  1 ntoniolo  2016_paris  3000 Aug 16 02:35 ft_strncmp.o
+-rwxrwxrwx  1 ntoniolo  2016_paris  1113 Aug  9 17:38 ft_strncpy.c
+-rw-r--r--  1 ntoniolo  2016_paris  2796 Aug 16 02:35 ft_strncpy.o
+-rwxrwxrwx  1 ntoniolo  2016_paris  1094 Aug  9 17:38 ft_strnequ.c
+-rw-r--r--  1 ntoniolo  2016_paris  2740 Aug 16 02:35 ft_strnequ.o
+-rwxrwxrwx  1 ntoniolo  2016_paris  1134 Aug  9 17:38 ft_strnew.c
+-rw-r--r--  1 ntoniolo  2016_paris  2728 Aug 16 02:35 ft_strnew.o
+-rwxrwxrwx  1 ntoniolo  2016_paris  1356 Aug  9 17:38 ft_strnstr.c
+-rw-r--r--  1 ntoniolo  2016_paris  3032 Aug 16 02:35 ft_strnstr.o
+-rwxrwxrwx  1 ntoniolo  2016_paris  1138 Aug  9 17:38 ft_strrchr.c
+-rw-r--r--  1 ntoniolo  2016_paris  2580 Aug 16 02:35 ft_strrchr.o
+-rwxrwxrwx  1 ntoniolo  2016_paris  1884 Aug  9 17:38 ft_strsplit.c
+-rw-r--r--  1 ntoniolo  2016_paris  4116 Aug 16 02:35 ft_strsplit.o
+-rwxrwxrwx  1 ntoniolo  2016_paris  1283 Aug  9 17:38 ft_strstr.c
+-rw-r--r--  1 ntoniolo  2016_paris  2732 Aug 16 02:35 ft_strstr.o
+-rwxrwxrwx  1 ntoniolo  2016_paris  1271 Aug  9 17:38 ft_strsub.c
+-rw-r--r--  1 ntoniolo  2016_paris  3084 Aug 16 02:35 ft_strsub.o
+-rwxrwxrwx  1 ntoniolo  2016_paris  1337 Aug  9 17:38 ft_strtrim.c
+-rw-r--r--  1 ntoniolo  2016_paris  3288 Aug 16 02:35 ft_strtrim.o
+-rwxrwxrwx  1 ntoniolo  2016_paris   985 Aug  9 17:38 ft_tolower.c
+-rw-r--r--  1 ntoniolo  2016_paris  2284 Aug 16 02:35 ft_tolower.o
+-rwxrwxrwx  1 ntoniolo  2016_paris   985 Aug  9 17:38 ft_toupper.c
+-rw-r--r--  1 ntoniolo  2016_paris  2284 Aug 16 02:35 ft_toupper.o
+-rwxrwxrwx  1 ntoniolo  2016_paris  2924 Aug  9 17:38 get_next_line.c
+-rw-r--r--  1 ntoniolo  2016_paris  6392 Aug 16 02:35 get_next_line.o
+drwxrwxrwx  4 ntoniolo  2016_paris   136 Aug  9 18:14 includes
+
+./libft/basic/includes:
+total 16
+-rwxrwxrwx  1 ntoniolo  2016_paris  1162 Aug  9 17:38 get_next_line.h
+-rwxrwxrwx  1 ntoniolo  2016_paris  4015 Aug  9 17:38 libft.h
+
+./libft/includes:
+total 8
+-rwxrwxrwx  1 ntoniolo  2016_paris  3007 Aug  9 17:38 ft_printf.h
+
+./libft/printf_fun:
+total 256
+-rwxrwxrwx  1 ntoniolo  2016_paris  1665 Aug  9 17:38 ft_dotoa.c
+-rw-r--r--  1 ntoniolo  2016_paris  4100 Aug 16 02:35 ft_dotoa.o
+-rwxrwxrwx  1 ntoniolo  2016_paris  1055 Aug  9 17:38 ft_isin.c
+-rw-r--r--  1 ntoniolo  2016_paris  2436 Aug 16 02:35 ft_isin.o
+-rwxrwxrwx  1 ntoniolo  2016_paris  2415 Aug  9 17:38 ft_multitoa_base.c
+-rw-r--r--  1 ntoniolo  2016_paris  5268 Aug 16 02:35 ft_multitoa_base.o
+-rwxrwxrwx  1 ntoniolo  2016_paris  1203 Aug  9 17:38 ft_putnbrbase.c
+-rw-r--r--  1 ntoniolo  2016_paris  2672 Aug 16 02:35 ft_putnbrbase.o
+-rwxrwxrwx  1 ntoniolo  2016_paris  1499 Aug  9 17:38 ft_putwchar.c
+-rw-r--r--  1 ntoniolo  2016_paris  3516 Aug 16 02:35 ft_putwchar.o
+-rwxrwxrwx  1 ntoniolo  2016_paris  1037 Aug  9 17:38 ft_putwstr.c
+-rw-r--r--  1 ntoniolo  2016_paris  2580 Aug 16 02:35 ft_putwstr.o
+-rwxrwxrwx  1 ntoniolo  2016_paris  1053 Aug  9 17:38 ft_sizebit.c
+-rw-r--r--  1 ntoniolo  2016_paris  2392 Aug 16 02:35 ft_sizebit.o
+-rwxrwxrwx  1 ntoniolo  2016_paris  1647 Aug  9 17:38 ft_strjoinfree.c
+-rw-r--r--  1 ntoniolo  2016_paris  3684 Aug 16 02:35 ft_strjoinfree.o
+-rwxrwxrwx  1 ntoniolo  2016_paris  2299 Aug  9 17:38 ft_watoa.c
+-rw-r--r--  1 ntoniolo  2016_paris  5048 Aug 16 02:35 ft_watoa.o
+-rwxrwxrwx  1 ntoniolo  2016_paris  1096 Aug  9 17:38 ft_wcharlen.c
+-rw-r--r--  1 ntoniolo  2016_paris  2648 Aug 16 02:35 ft_wcharlen.o
+-rwxrwxrwx  1 ntoniolo  2016_paris  1810 Aug  9 17:38 ft_wctoc.c
+-rw-r--r--  1 ntoniolo  2016_paris  4144 Aug 16 02:35 ft_wctoc.o
+-rwxrwxrwx  1 ntoniolo  2016_paris  1083 Aug  9 17:38 ft_wstrlen.c
+-rw-r--r--  1 ntoniolo  2016_paris  2816 Aug 16 02:35 ft_wstrlen.o
+-rwxrwxrwx  1 ntoniolo  2016_paris  1164 Aug  9 17:38 ft_wstrnew.c
+-rw-r--r--  1 ntoniolo  2016_paris  2940 Aug 16 02:35 ft_wstrnew.o
+-rwxrwxrwx  1 ntoniolo  2016_paris  1620 Aug  9 17:38 ft_wstrsub.c
+-rw-r--r--  1 ntoniolo  2016_paris  3904 Aug 16 02:35 ft_wstrsub.o
+drwxrwxrwx  3 ntoniolo  2016_paris   102 Aug  9 17:38 includes
+
+./libft/printf_fun/includes:
+total 8
+-rwxrwxrwx  1 ntoniolo  2016_paris  1715 Aug  9 17:38 printf_fun.h
+
+./libft/srcs:
+total 296
+-rwxrwxrwx  1 ntoniolo  2016_paris  3220 Aug  9 17:38 arg_dipfoux.c
+-rw-r--r--  1 ntoniolo  2016_paris  8580 Aug 16 02:35 arg_dipfoux.o
+-rwxrwxrwx  1 ntoniolo  2016_paris  3119 Aug  9 17:38 check.c
+-rw-r--r--  1 ntoniolo  2016_paris  7352 Aug 16 02:35 check.o
+-rwxrwxrwx  1 ntoniolo  2016_paris  3316 Aug  9 17:38 dipfoux.c
+-rw-r--r--  1 ntoniolo  2016_paris  7528 Aug 16 02:35 dipfoux.o
+-rwxrwxrwx  1 ntoniolo  2016_paris  2623 Aug  9 17:38 ft_printf.c
+-rw-r--r--  1 ntoniolo  2016_paris  8172 Aug 16 02:35 ft_printf.o
+-rwxrwxrwx  1 ntoniolo  2016_paris  2071 Aug  9 17:38 ft_putbuffer.c
+-rw-r--r--  1 ntoniolo  2016_paris  5844 Aug 16 02:35 ft_putbuffer.o
+-rwxrwxrwx  1 ntoniolo  2016_paris  2320 Aug  9 17:38 preci.c
+-rw-r--r--  1 ntoniolo  2016_paris  6080 Aug 16 02:35 preci.o
+-rwxrwxrwx  1 ntoniolo  2016_paris  2718 Aug  9 17:38 printf_loop.c
+-rw-r--r--  1 ntoniolo  2016_paris  7216 Aug 16 02:35 printf_loop.o
+-rwxrwxrwx  1 ntoniolo  2016_paris  2118 Aug  9 17:38 sc_c.c
+-rw-r--r--  1 ntoniolo  2016_paris  5668 Aug 16 02:35 sc_c.o
+-rwxrwxrwx  1 ntoniolo  2016_paris  2672 Aug  9 17:38 sc_s.c
+-rw-r--r--  1 ntoniolo  2016_paris  6640 Aug 16 02:35 sc_s.o
+-rwxrwxrwx  1 ntoniolo  2016_paris  2094 Aug  9 17:38 write_f.c
+-rw-r--r--  1 ntoniolo  2016_paris  5440 Aug 16 02:35 write_f.o
+-rwxrwxrwx  1 ntoniolo  2016_paris  2163 Aug  9 17:38 write_other.c
+-rw-r--r--  1 ntoniolo  2016_paris  5364 Aug 16 02:35 write_other.o
+-rwxrwxrwx  1 ntoniolo  2016_paris  2009 Aug  9 17:38 write_width.c
+-rw-r--r--  1 ntoniolo  2016_paris  5516 Aug 16 02:35 write_width.o
+
+./libs:
+total 616
+-rwxrwxrwx  1 ntoniolo  2016_paris  313116 Aug  9 17:38 libft.a
+
+./minilibtree:
+total 120
+-rwxrwxrwx   1 ntoniolo  2016_paris   1855 Aug 11 02:09 Makefile
+drwxrwxrwx   3 ntoniolo  2016_paris    102 Aug 14 11:29 includes
+-rw-r--r--   1 ntoniolo  2016_paris  54516 Aug 16 03:33 libbtree.a
+drwxrwxrwx  41 ntoniolo  2016_paris   1394 Aug 16 02:35 srcs
+drwxrwxrwx   6 ntoniolo  2016_paris    204 Aug 14 02:11 tests
+
+./minilibtree/includes:
+total 8
+-rwxrwxrwx  1 ntoniolo  2016_paris  2188 Aug 14 11:29 btree.h
+
+./minilibtree/srcs:
+total 312
+-rwxrwxrwx  1 ntoniolo  2016_paris  1164 Aug 10 02:22 btree_apply_infix.c
+-rw-r--r--  1 ntoniolo  2016_paris  2744 Aug 16 02:35 btree_apply_infix.o
+-rwxrwxrwx  1 ntoniolo  2016_paris  1167 Aug 10 02:16 btree_apply_prefix.c
+-rw-r--r--  1 ntoniolo  2016_paris  2752 Aug 16 02:35 btree_apply_prefix.o
+-rwxrwxrwx  1 ntoniolo  2016_paris  1167 Aug 10 02:22 btree_apply_suffix.c
+-rw-r--r--  1 ntoniolo  2016_paris  2752 Aug 16 02:35 btree_apply_suffix.o
+-rwxrwxrwx  1 ntoniolo  2016_paris  1008 Aug  9 22:15 btree_child_left.c
+-rw-r--r--  1 ntoniolo  2016_paris  2496 Aug 16 02:35 btree_child_left.o
+-rwxrwxrwx  1 ntoniolo  2016_paris  1010 Aug  9 22:15 btree_child_right.c
+-rw-r--r--  1 ntoniolo  2016_paris  2496 Aug 16 02:35 btree_child_right.o
+-rwxrwxrwx  1 ntoniolo  2016_paris  1127 Aug 14 11:26 btree_create_leaf.c
+-rw-r--r--  1 ntoniolo  2016_paris  2664 Aug 16 02:35 btree_create_leaf.o
+-rwxrwxrwx  1 ntoniolo  2016_paris  1185 Aug 14 11:27 btree_create_node.c
+-rw-r--r--  1 ntoniolo  2016_paris  2728 Aug 16 02:35 btree_create_node.o
+-rwxrwxrwx  1 ntoniolo  2016_paris  1109 Aug 10 00:14 btree_delete_left.c
+-rw-r--r--  1 ntoniolo  2016_paris  2692 Aug 16 02:35 btree_delete_left.o
+-rwxrwxrwx  1 ntoniolo  2016_paris  1113 Aug 10 00:13 btree_delete_right.c
+-rw-r--r--  1 ntoniolo  2016_paris  2704 Aug 16 02:35 btree_delete_right.o
+-rwxrwxrwx  1 ntoniolo  2016_paris  1156 Aug 10 00:58 btree_depth_insert_left.c
+-rw-r--r--  1 ntoniolo  2016_paris  2772 Aug 16 02:35 btree_depth_insert_left.o
+-rwxrwxrwx  1 ntoniolo  2016_paris  1160 Aug 10 00:58 btree_depth_insert_right.c
+-rw-r--r--  1 ntoniolo  2016_paris  2776 Aug 16 02:35 btree_depth_insert_right.o
+-rwxrwxrwx  1 ntoniolo  2016_paris  1616 Aug 14 11:27 btree_insert_data.c
+-rw-r--r--  1 ntoniolo  2016_paris  3800 Aug 16 02:35 btree_insert_data.o
+-rwxrwxrwx  1 ntoniolo  2016_paris  1227 Aug 14 11:26 btree_insert_infix_data.c
+-rw-r--r--  1 ntoniolo  2016_paris  2856 Aug 16 02:35 btree_insert_infix_data.o
+-rwxrwxrwx  1 ntoniolo  2016_paris  1045 Aug 10 00:21 btree_insert_left.c
+-rw-r--r--  1 ntoniolo  2016_paris  2628 Aug 16 02:35 btree_insert_left.o
+-rwxrwxrwx  1 ntoniolo  2016_paris  1048 Aug  9 23:59 btree_insert_right.c
+-rw-r--r--  1 ntoniolo  2016_paris  2628 Aug 16 02:35 btree_insert_right.o
+-rwxrwxrwx  1 ntoniolo  2016_paris   972 Aug 14 11:27 btree_is_empty.c
+-rw-r--r--  1 ntoniolo  2016_paris  2492 Aug 16 02:35 btree_is_empty.o
+-rwxrwxrwx  1 ntoniolo  2016_paris  1028 Aug 10 00:11 btree_is_leaf.c
+-rw-r--r--  1 ntoniolo  2016_paris  2580 Aug 16 02:35 btree_is_leaf.o
+-rwxrwxrwx  1 ntoniolo  2016_paris   958 Aug 10 05:14 btree_level_count.c
+-rwxrwxrwx  1 ntoniolo  2016_paris  1242 Aug 14 11:26 btree_search_item.c
+-rw-r--r--  1 ntoniolo  2016_paris  2936 Aug 16 02:35 btree_search_item.o
+-rwxrwxrwx  1 ntoniolo  2016_paris  1059 Aug  9 22:32 btree_size.c
+-rw-r--r--  1 ntoniolo  2016_paris  2864 Aug 16 02:35 btree_size.o
+
+./minilibtree/tests:
+total 136
+-rwxrwxrwx   1 ntoniolo  2016_paris   1513 Aug 11 02:12 Makefile
+drwxrwxrwx   3 ntoniolo  2016_paris    102 Aug 11 11:04 includes
+drwxrwxrwx  11 ntoniolo  2016_paris    374 Aug 15 04:27 srcs
+-rwxrwxrwx   1 ntoniolo  2016_paris  62300 Aug 14 02:11 test
+
+./minilibtree/tests/includes:
+total 8
+-rwxrwxrwx  1 ntoniolo  2016_paris  1518 Aug 11 02:12 test.h
+
+./minilibtree/tests/srcs:
+total 72
+-rwxrwxrwx  1 ntoniolo  2016_paris  2896 Aug 10 05:00 btree_apply.c
+-rwxrwxrwx  1 ntoniolo  2016_paris  1610 Aug  9 22:13 btree_create_leaf.c
+-rwxrwxrwx  1 ntoniolo  2016_paris  1794 Aug  9 22:13 btree_create_node.c
+-rwxrwxrwx  1 ntoniolo  2016_paris  2680 Aug 11 03:12 btree_insert.c
+-rwxrwxrwx  1 ntoniolo  2016_paris  3262 Aug 10 00:10 btree_other.c
+-rwxrwxrwx  1 ntoniolo  2016_paris  2408 Aug 10 00:50 btree_single_item.c
+-rwxrwxrwx  1 ntoniolo  2016_paris  1770 Aug 14 02:11 main.c
+-rwxrwxrwx  1 ntoniolo  2016_paris  1126 Aug  9 22:10 print_result.c
+-rwxrwxrwx  1 ntoniolo  2016_paris  1086 Aug  9 21:12 test_create.c
+
+./objs:
+total 176
+-rw-r--r--  1 ntoniolo  2016_paris   3260 Aug 16 03:28 ft_lst_remove_index.o
+-rw-r--r--  1 ntoniolo  2016_paris   2848 Aug 16 03:28 ls_dir_path_to_lst.o
+-rw-r--r--  1 ntoniolo  2016_paris   8436 Aug 16 03:28 ls_get_dir.o
+-rw-r--r--  1 ntoniolo  2016_paris   6260 Aug 16 03:28 ls_loop.o
+-rw-r--r--  1 ntoniolo  2016_paris   6616 Aug 16 03:33 ls_max_print.o
+-rw-r--r--  1 ntoniolo  2016_paris   9176 Aug 16 03:28 ls_pars_arg.o
+-rw-r--r--  1 ntoniolo  2016_paris  10964 Aug 16 03:33 ls_print.o
+-rw-r--r--  1 ntoniolo  2016_paris   8676 Aug 16 03:28 ls_stat_create_leaf.o
+-rw-r--r--  1 ntoniolo  2016_paris   8536 Aug 16 03:28 ls_type_and_file_right.o
+-rw-r--r--  1 ntoniolo  2016_paris   3720 Aug 16 03:28 main.o
+
+./sandbox:
+total 8
+-rw-r--r--   1 ntoniolo  2016_paris    0 Aug 15 10:47 a
+drwxr-xr-x  12 ntoniolo  2016_paris  408 Aug 15 10:47 dir1
+drwxr-xr-x   2 ntoniolo  2016_paris   68 Aug 15 10:47 dir2
+drwxr-xr-x   2 ntoniolo  2016_paris   68 Aug 15 10:47 dir3
+drwxr-xr-x   2 ntoniolo  2016_paris   68 Aug 15 10:47 dir4
+drwxr-xr-x   2 ntoniolo  2016_paris   68 Aug 15 10:47 dir5
+lrwxr-xr-x   1 ntoniolo  2016_paris    1 Aug 15 10:47 symlink -> a
+
+./sandbox/dir1:
+total 0
+-rw-r--r--  1 ntoniolo  2016_paris  0 Aug 15 10:47 file1
+-rw-r--r--  1 ntoniolo  2016_paris  0 Aug 15 10:47 file2
+-rw-r--r--  1 ntoniolo  2016_paris  0 Aug 15 10:47 file3
+-rw-r--r--  1 ntoniolo  2016_paris  0 Aug 15 10:47 file4
+-rw-r--r--  1 ntoniolo  2016_paris  0 Aug 15 10:47 file5
+
+./sandbox/dir2:
+
+./sandbox/dir3:
+
+./sandbox/dir4:
+
+./sandbox/dir5:
+
+./srcs:
+total 88
+-rwxrwxrwx  1 ntoniolo  2016_paris  1333 Aug 15 04:37 ft_lst_remove_index.c
+-rwxrwxrwx  1 ntoniolo  2016_paris  1007 Aug 15 02:31 ls_dir_path_to_lst.c
+-rwxrwxrwx  1 ntoniolo  2016_paris  1978 Aug 15 11:21 ls_get_dir.c
+-rwxrwxrwx  1 ntoniolo  2016_paris  2041 Aug 16 03:26 ls_loop.c
+-rwxrwxrwx  1 ntoniolo  2016_paris  2746 Aug 16 03:33 ls_max_print.c
+-rwxrwxrwx  1 ntoniolo  2016_paris  2541 Aug 16 03:23 ls_pars_arg.c
+-rwxrwxrwx  1 ntoniolo  2016_paris  3708 Aug 16 03:33 ls_print.c
+-rwxrwxrwx  1 ntoniolo  2016_paris  2184 Aug 15 11:27 ls_stat_create_leaf.c
+-rwxrwxrwx  1 ntoniolo  2016_paris  2030 Aug 15 01:53 ls_stat_to_list.c
+-rwxrwxrwx  1 ntoniolo  2016_paris  3148 Aug 15 02:32 ls_type_and_file_right.c
+-rwxrwxrwx  1 ntoniolo  2016_paris  1226 Aug 16 03:28 main.c
