@@ -6,7 +6,7 @@
 /*   By: ntoniolo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/21 17:59:18 by ntoniolo          #+#    #+#             */
-/*   Updated: 2017/08/16 08:34:24 by ntoniolo         ###   ########.fr       */
+/*   Updated: 2017/08/16 08:47:47 by ntoniolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,13 +64,12 @@ int		ls_pars_files(t_env *e, char **argv, int i)
 		{
 			elem = ls_create_elem(buff, argv[i]);
 			if (buff.st_mode & S_IFDIR)
-				ft_lstinsert(&e->dir, ft_lstnew(argv[i], ft_strlen(argv[i]) + 1));//ALPAHBEATTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT
+				ft_lstinsert_cmp(&e->dir, ft_lstnew(argv[i], ft_strlen(argv[i]) + 1), e->cmp_str);
 			else
 				btree_insert_infix_data(&e->file, elem, e->cmp);
 		}
 		else
-			ft_lstinsert(&e->not_here, ft_lstnew(argv[i], ft_strlen(argv[i]) + 1));
-		//Veirf si nb_arg++ dans ce cas
+			ft_lstinsert_cmp(&e->not_here, ft_lstnew(argv[i], ft_strlen(argv[i]) + 1), &cmp_str_alphabet);
 		e->nb_arg++;
 		i++;
 	}
@@ -102,7 +101,16 @@ int			ls_pars_arg(t_env *e, int argc, char **argv)
 		}
 		i++;
 	}
-	e->cmp = &cmp_elem_alphabet;
+	if (e->flag & FLAG_RV)
+	{
+		e->cmp = &cmp_elem_alphabet_reverse;
+		e->cmp_str = &cmp_str_alphabet_reverse;
+	}
+	else
+	{
+		e->cmp = &cmp_elem_alphabet;
+		e->cmp_str = &cmp_str_alphabet;
+	}
 	if (!argv[i])
 		temp_dir(e);
 	else if (!(ls_pars_files(e, argv, i)))

@@ -6,7 +6,7 @@
 /*   By: ntoniolo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/21 23:39:15 by ntoniolo          #+#    #+#             */
-/*   Updated: 2017/08/16 08:34:31 by ntoniolo         ###   ########.fr       */
+/*   Updated: 2017/08/16 08:42:15 by ntoniolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static void	init(t_list **lst, t_list **past, t_list **cur, t_list *new)
 		*lst = new;
 }
 
-void		ft_lstinsert_cmp(t_list **lst, t_list *new, int (*cmp)(char *, char *))
+void		ft_lstinsert_cmp(t_list **lst, t_list *new, int (*cmp)(void *, void *))
 {
 	t_list *past;
 	t_list *cur;

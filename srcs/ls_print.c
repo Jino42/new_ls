@@ -6,7 +6,7 @@
 /*   By: ntoniolo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/15 08:35:12 by ntoniolo          #+#    #+#             */
-/*   Updated: 2017/08/16 05:24:54 by ntoniolo         ###   ########.fr       */
+/*   Updated: 2017/08/16 08:48:48 by ntoniolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -127,8 +127,6 @@ void		ls_print(t_env *e)
 	t_elem *elem;
 	t_size_m	size_m;
 
-//	if (e->not_here)
-//		ls_print_not_here(e);
 	if (!(ls_condition_print(e, &size_m)))
 		return ;
 	if (!e->file)

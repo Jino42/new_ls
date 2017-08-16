@@ -6,7 +6,7 @@
 /*   By: ntoniolo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/26 07:28:53 by ntoniolo          #+#    #+#             */
-/*   Updated: 2017/08/16 08:30:22 by ntoniolo         ###   ########.fr       */
+/*   Updated: 2017/08/16 08:47:08 by ntoniolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int				ls_get_dir(t_env *e, char *path)
 	(void)e;
 	ptr = opendir(path);
 	if (!ptr)
-		return (0); //////////here right = 0
+		return (0);
 	while ((dir = readdir(ptr)))
 	{
 		ls_add_file_to_btree(e, path, dir);

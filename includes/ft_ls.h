@@ -6,7 +6,7 @@
 /*   By: ntoniolo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/21 11:53:46 by ntoniolo          #+#    #+#             */
-/*   Updated: 2017/08/16 08:34:12 by ntoniolo         ###   ########.fr       */
+/*   Updated: 2017/08/16 08:38:23 by ntoniolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,6 +83,7 @@ typedef struct	s_env
 	int			nb_arg;
 	int			cur_dir;
 	int			(*cmp)(void *, void *);
+	int			(*cmp_str)(void *, void *);
 	t_btree		*file;
 	t_list		*dir;
 	t_list		*temp_dir;
@@ -102,6 +103,7 @@ void			ls_max_print(t_btree *root, t_size_m *size_m);
 
 int				diff_alphabet(void *s, void *s2);
 
+void			ft_lstinsert_cmp(t_list **list, t_list *new, int (*cmp)(void *, void *));
 t_list			*ft_lst_remove_index(t_list **lst, size_t index);
 
 int				ls_pars_arg(t_env *e, int argc, char **argv);
