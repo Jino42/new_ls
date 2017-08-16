@@ -6,7 +6,7 @@
 #    By: ntoniolo <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/02 18:45:43 by ntoniolo          #+#    #+#              #
-#    Updated: 2017/08/16 08:36:44 by ntoniolo         ###   ########.fr        #
+#    Updated: 2017/08/16 09:06:53 by ntoniolo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,10 +26,10 @@ SRC = main.c \
 	  ls_print.c \
 	  ft_lst_remove_index.c \
 	  ls_get_dir.c \
-	  ls_dir_path_to_lst.c \
 	  ls_type_and_file_right.c \
 	  ls_stat_create_leaf.c \
-	  ls_pars_arg.c
+	  ls_pars_arg.c \
+	  ls_pars_flag.c
 
 SRC_DIR = srcs/
 

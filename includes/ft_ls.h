@@ -6,7 +6,7 @@
 /*   By: ntoniolo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/21 11:53:46 by ntoniolo          #+#    #+#             */
-/*   Updated: 2017/08/16 08:38:23 by ntoniolo         ###   ########.fr       */
+/*   Updated: 2017/08/16 09:07:10 by ntoniolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,6 +90,9 @@ typedef struct	s_env
 	t_list		*not_here;
 }				t_env;
 
+int				ls_pars_flag(t_env *e, char **argv, int *i);
+int				ls_pars_arg(t_env *e, int argc, char **argv);
+
 void			ls_print(t_env *e);
 void			ls_print_init(t_env *e);
 void			ls_print_not_here(t_env *e);
@@ -106,9 +109,7 @@ int				diff_alphabet(void *s, void *s2);
 void			ft_lstinsert_cmp(t_list **list, t_list *new, int (*cmp)(void *, void *));
 t_list			*ft_lst_remove_index(t_list **lst, size_t index);
 
-int				ls_pars_arg(t_env *e, int argc, char **argv);
 t_btree			*ls_stat_create_leaf(t_env *e, struct stat buff, char *path);
-t_list			*ls_dir_path_to_lst(char *path);
 void			ls_type_and_file_right(t_elem *elem, ssize_t st_mode,
 		struct stat *ptr_buff);
 int				ls_get_dir(t_env *e, char *path);
