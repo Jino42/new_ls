@@ -6,7 +6,7 @@
 /*   By: ntoniolo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/21 17:59:18 by ntoniolo          #+#    #+#             */
-/*   Updated: 2017/08/16 03:23:39 by ntoniolo         ###   ########.fr       */
+/*   Updated: 2017/08/16 08:34:24 by ntoniolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,8 +53,6 @@ int		ls_pars_files(t_env *e, char **argv, int i)
 	t_elem *elem;
 	struct stat buff;
 
-	if (!argv[i])
-		return (0);
 	while (argv[i])
 	{
 		if (argv[i][0] == 0)
@@ -65,10 +63,10 @@ int		ls_pars_files(t_env *e, char **argv, int i)
 		if (!(stat(argv[i], &buff) == -1 && lstat(argv[i], &buff) == -1))
 		{
 			elem = ls_create_elem(buff, argv[i]);
-			if (elem->mode[NUM_TYPE] == 'd')
-				ft_lstinsert(&e->dir, ft_lstnew(argv[i], ft_strlen(argv[i]) + 1));//adddir
+			if (buff.st_mode & S_IFDIR)
+				ft_lstinsert(&e->dir, ft_lstnew(argv[i], ft_strlen(argv[i]) + 1));//ALPAHBEATTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT
 			else
-				btree_insert_infix_data(&e->file, elem, &diff_alphabet);
+				btree_insert_infix_data(&e->file, elem, e->cmp);
 		}
 		else
 			ft_lstinsert(&e->not_here, ft_lstnew(argv[i], ft_strlen(argv[i]) + 1));
@@ -82,14 +80,32 @@ int		ls_pars_files(t_env *e, char **argv, int i)
 int			ls_pars_arg(t_env *e, int argc, char **argv)
 {
 	int i;
+	int option;
 
+	option = 0;
 	i = 1;
-	while (argv[i] && argv[i][0] == '-')
+	while (argv[i] && argv[i][0] == '-' && argv[i][1] != '\0' && !option)
 	{
-		ls_pars_flag(e, argv, i);
+		if (!ft_strcmp(argv[i], "--"))
+		{
+			if (!option)
+				option = 1;
+			else
+				return (0);
+		}
+		else if (!ft_strcmp(argv[i], "---"))
+			break ;
+		else
+		{
+			if (!ls_pars_flag(e, argv, i))
+				return (0);
+		}
 		i++;
 	}
-	if (!(ls_pars_files(e, argv, i)))
+	e->cmp = &cmp_elem_alphabet;
+	if (!argv[i])
 		temp_dir(e);
+	else if (!(ls_pars_files(e, argv, i)))
+		return (0);
 	return (1);
 }

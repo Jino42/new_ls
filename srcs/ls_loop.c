@@ -6,7 +6,7 @@
 /*   By: ntoniolo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/15 06:00:40 by ntoniolo          #+#    #+#             */
-/*   Updated: 2017/08/16 03:26:47 by ntoniolo         ###   ########.fr       */
+/*   Updated: 2017/08/16 05:15:20 by ntoniolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 ** == inv
 */
 
-void	print(void *env, void *ptr)
+void	ls_temp_dir_to_dir(void *env, void *ptr)
 {
 	t_elem *elem;
 	t_env *e;
@@ -28,7 +28,16 @@ void	print(void *env, void *ptr)
 	elem = (t_elem*)ptr;
 	if (e->flag & FLAG_R && elem->mode[NUM_TYPE] == 'd') // condition fonction useless without R ?
 	{
-		ft_lstadd(&e->temp_dir, ft_lstnew(elem->path, ft_strlen(elem->path) + 1));
+		if (e->flag & FLAG_A)
+		{
+			if (!ft_strcmp(&elem->path[elem->ind_last_slash], ".") ||
+				!ft_strcmp(&elem->path[elem->ind_last_slash], ".."))
+				return ;
+			else
+				ft_lstadd(&e->temp_dir, ft_lstnew(elem->path, ft_strlen(elem->path) + 1));
+		}
+		else
+			ft_lstadd(&e->temp_dir, ft_lstnew(elem->path, ft_strlen(elem->path) + 1));
 	}
 }
 
@@ -65,7 +74,7 @@ int			ls_loop(t_env *e)
 		e->cur_dir++;
 		ls_get_dir(e, (char *)e->dir->content);
 		if (e->file)
-			btree_apply_infix_env(e, e->file, &print);
+			btree_apply_infix_env(e, e->file, &ls_temp_dir_to_dir);
 		ls_print(e);
 		ft_lst_remove_index(&e->dir, 0); // NEED TO FREE
 		ls_maj_dir(e);

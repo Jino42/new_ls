@@ -6,7 +6,7 @@
 #    By: ntoniolo <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/02 18:45:43 by ntoniolo          #+#    #+#              #
-#    Updated: 2017/08/15 10:10:39 by ntoniolo         ###   ########.fr        #
+#    Updated: 2017/08/16 08:23:41 by ntoniolo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,6 +20,7 @@ FLAGS =  -g -I ./include/
 
 SRC = main.c \
 	  ls_loop.c \
+	  ls_function_sort.c \
 	  ls_max_print.c \
 	  ls_print.c \
 	  ft_lst_remove_index.c \

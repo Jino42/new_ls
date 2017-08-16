@@ -6,7 +6,7 @@
 /*   By: ntoniolo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/21 11:53:46 by ntoniolo          #+#    #+#             */
-/*   Updated: 2017/08/16 03:28:37 by ntoniolo         ###   ########.fr       */
+/*   Updated: 2017/08/16 08:34:12 by ntoniolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,7 @@ typedef struct	s_env
 	int			flag;
 	int			nb_arg;
 	int			cur_dir;
+	int			(*cmp)(void *, void *);
 	t_btree		*file;
 	t_list		*dir;
 	t_list		*temp_dir;
@@ -91,6 +92,11 @@ typedef struct	s_env
 void			ls_print(t_env *e);
 void			ls_print_init(t_env *e);
 void			ls_print_not_here(t_env *e);
+
+int				cmp_elem_alphabet(void *s, void *s2);
+int				cmp_elem_alphabet_reverse(void *s, void *s2);
+int				cmp_str_alphabet(void *s, void *s2);
+int				cmp_str_alphabet_reverse(void *s, void *s2);
 
 void			ls_max_print(t_btree *root, t_size_m *size_m);
 

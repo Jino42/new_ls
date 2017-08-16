@@ -6,7 +6,7 @@
 /*   By: ntoniolo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/15 08:35:12 by ntoniolo          #+#    #+#             */
-/*   Updated: 2017/08/16 03:37:12 by ntoniolo         ###   ########.fr       */
+/*   Updated: 2017/08/16 05:24:54 by ntoniolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,15 +30,10 @@ static char	*ls_ret_time(t_elem *elem)
 
 static int	ls_condition_print(t_env *e, t_size_m *size_m)
 {
-//	if (prems)
-//		;
-//	if (arv > 1 || e->cur_dir)
-//	%s:path
 	if (!e->cur_dir)
 		return (1);
-	if ((e->dir && e->dir->next) || e->nb_arg > 1)
+	if ((e->dir && e->cur_dir > 1) || e->nb_arg > 1)
 		ft_printf("%s:\n", (char*)(e->dir->content));
-//if right x = premision denied
 	if (e->dir && !e->file)
 	{
 		void *ptr;
@@ -52,6 +47,15 @@ static int	ls_condition_print(t_env *e, t_size_m *size_m)
 	return (1);
 }
 
+void		ls_print_minor_major(t_elem *elem, t_size_m *size_m, char *ret_time)
+{
+	ft_printf("%*li, %*li %.*s %s",
+			size_m->major_max, ((elem->st_dev >> 24) & 0xff),
+			size_m->minor_max, (int)((elem->st_dev) & 0xff),
+			12 + size_m->years_max, ret_time + 4,
+			&elem->path[elem->ind_last_slash]);
+}
+
 void		ls_print_l(t_elem *elem, t_size_m *size_m)
 {
 	char	*ret_time;
@@ -62,13 +66,15 @@ void		ls_print_l(t_elem *elem, t_size_m *size_m)
 			size_m->nlink_max + 1, elem->nlink,
 			size_m->p_max, elem->p_name,
 			size_m->g_max, elem->g_name);
-//	if (elem->mode[NUM_TYPE] == 'c' || elem->mode[NUM_TYPE] == 'b')
-//	lsprintminormajor
-//	else
-	ft_printf("%*li %.*s %s",
+	if (elem->mode[NUM_TYPE] == 'c' || elem->mode[NUM_TYPE] == 'b')
+		ls_print_minor_major(elem, size_m, ret_time);
+	else
+	{
+		ft_printf("%*li %.*s %s",
 			size_m->size_max + 1, elem->size,
 			12 + size_m->years_max, ret_time + 4,
 			&elem->path[elem->ind_last_slash]);
+	}
 	if (elem->mode[NUM_TYPE] == 'l')
 		ft_printf("%s", elem->r_lnk);
 	ft_printf("\n");
