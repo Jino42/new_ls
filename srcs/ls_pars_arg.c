@@ -6,7 +6,7 @@
 /*   By: ntoniolo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/21 17:59:18 by ntoniolo          #+#    #+#             */
-/*   Updated: 2017/08/16 11:35:59 by ntoniolo         ###   ########.fr       */
+/*   Updated: 2017/08/16 11:59:19 by ntoniolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,8 @@ static void		ls_assign_ptr_fun(t_env *e)
 	if (e->flag & FLAG_T)
 	{
 		e->cmp = &cmp_elem_time;
+		if (e->flag & FLAG_RV)
+			e->cmp = &cmp_elem_time_reverse;
 	}
 }
 

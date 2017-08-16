@@ -6,7 +6,7 @@
 /*   By: ntoniolo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/21 11:53:46 by ntoniolo          #+#    #+#             */
-/*   Updated: 2017/08/16 11:40:56 by ntoniolo         ###   ########.fr       */
+/*   Updated: 2017/08/16 11:58:40 by ntoniolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,8 +102,9 @@ void			ls_print_init(t_env *e);
 void			ls_print_not_here(t_env *e);
 
 int				cmp_elem_alphabet(void *s, void *s2);
-int				cmp_elem_time(void *node, void *child);
 int				cmp_elem_alphabet_reverse(void *s, void *s2);
+int				cmp_elem_time(void *node, void *child);
+int				cmp_elem_time_reverse(void *node, void *child);
 int				cmp_str_alphabet(void *s, void *s2);
 int				cmp_str_alphabet_reverse(void *s, void *s2);
 
