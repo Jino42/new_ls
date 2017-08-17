@@ -6,7 +6,7 @@
 /*   By: ntoniolo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/21 11:53:46 by ntoniolo          #+#    #+#             */
-/*   Updated: 2017/08/17 18:22:44 by ntoniolo         ###   ########.fr       */
+/*   Updated: 2017/08/17 19:14:45 by ntoniolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@
 # define FLAG_T (1 << 5)
 # define FLAG_D (1 << 6)
 # define FLAG_U (1 << 7)
+# define FLAG_SS (1 << 8)
 
 # define P_FILE 0
 # define P_DIR 1
@@ -105,16 +106,15 @@ void			ls_print_basic(t_env *e, t_elem *elem);
 void			ls_print_not_here(t_env *e);
 
 int				cmp_elem_alphabet(void *s, void *s2);
-int				cmp_elem_alphabet_reverse(void *s, void *s2);
 int				cmp_elem_time(void *node, void *child);
-int				cmp_elem_time_reverse(void *node, void *child);
+int				cmp_elem_size(void *node, void *child);
 int				cmp_str_alphabet(void *s, void *s2);
-int				cmp_str_alphabet_reverse(void *s, void *s2);
 int				cmp_empty(void *a, void *b);
+int				cmp_empty_reverse(void *a, void *b);
 
 void			ls_max_print(t_btree *root, t_size_m *size_m);
 
-void			ft_lstinsert_cmp(t_list **list, t_list *new, int (*cmp)(void *, void *));
+void			ft_lstinsert_dir(t_list **list, t_list *new, int (*cmp)(void *, void *), int reverse);
 t_list			*ft_lst_remove_index(t_list **lst, size_t index);
 
 t_btree			*ls_stat_create_leaf(t_env *e, struct stat buff, char *path);
@@ -127,5 +127,8 @@ int				ls_loop(t_env *e);
 void			ls_free_elem(void *ptr_elem);
 void			ls_free_path(void *path, size_t size);
 void			ft_lstdelall(t_list **lst, void (*apply)(void *, size_t));
+
+void        btree_insert_infix_data_ls(t_btree **root, void *item,
+		int (*cmpf)(void *, void *), int reverse);
 
 #endif

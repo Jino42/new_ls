@@ -6,7 +6,7 @@
 /*   By: ntoniolo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/21 17:59:18 by ntoniolo          #+#    #+#             */
-/*   Updated: 2017/08/17 18:26:52 by ntoniolo         ###   ########.fr       */
+/*   Updated: 2017/08/17 19:23:33 by ntoniolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ static void		ls_add_current_dir(t_env *e)
 	{
 		elem = ls_create_elem(buff, ft_strdup("."));
 		elem->ind_last_slash = 0;
-		btree_insert_infix_data(&e->file, elem, e->cmp);
+		btree_insert_infix_data_ls(&e->file, elem, e->cmp, e->flag & FLAG_RV);
 	}
 }
 
@@ -53,18 +53,18 @@ static int		ls_pars_files(t_env *e, char **argv, int i)
 		if (!(stat(argv[i], &buff) == -1 && lstat(argv[i], &buff) == -1))
 		{
 			if (buff.st_mode & S_IFDIR && !(e->flag & FLAG_D))
-				ft_lstinsert_cmp(&e->dir, ft_lstnew(argv[i],
-							ft_strlen(argv[i]) + 1), e->cmp_str);
+				ft_lstinsert_dir(&e->dir, ft_lstnew(argv[i],
+							ft_strlen(argv[i]) + 1), e->cmp_str, e->flag & FLAG_RV);
 			else
 			{
 				elem = ls_create_elem(buff, ft_strdup(argv[i]));
 				elem->ind_last_slash = 0;
-				btree_insert_infix_data(&e->file, elem, e->cmp);
+				btree_insert_infix_data_ls(&e->file, elem, e->cmp, e->flag & FLAG_RV);
 			}
 		}
 		else
-			ft_lstinsert_cmp(&e->not_here, ft_lstnew(argv[i],
-						ft_strlen(argv[i]) + 1), &cmp_str_alphabet);
+			ft_lstinsert_dir(&e->not_here, ft_lstnew(argv[i],
+						ft_strlen(argv[i]) + 1), &cmp_str_alphabet, 0);
 		e->nb_arg++;
 		i++;
 	}
@@ -73,28 +73,17 @@ static int		ls_pars_files(t_env *e, char **argv, int i)
 
 static void		ls_assign_ptr_fun(t_env *e)
 {
-	if (e->flag & FLAG_RV)
-	{
-		e->cmp = &cmp_elem_alphabet;
-//		e->cmp = &cmp_elem_alphabet_reverse;
-		e->cmp_str = &cmp_str_alphabet_reverse;
-	}
-	else
-	{
-		e->cmp = &cmp_elem_alphabet;
-		e->cmp_str = &cmp_str_alphabet;
-	}
-	if (e->flag & FLAG_T)
-	{
-		e->cmp = &cmp_elem_time;
-//		if (e->flag & FLAG_RV)
-//			e->cmp = &cmp_elem_time_reverse;
-	}
+	e->cmp = &cmp_elem_alphabet;
+	e->cmp_str = &cmp_str_alphabet;
 	if (e->flag & FLAG_U)
 	{
 		e->cmp = &cmp_empty;
 		e->cmp_str = &cmp_empty;
 	}
+	if (e->flag & FLAG_T)
+		e->cmp = &cmp_elem_time;
+	if (e->flag & FLAG_SS)
+		e->cmp = &cmp_elem_size;
 }
 
 int				ls_pars_arg(t_env *e, int argc, char **argv)

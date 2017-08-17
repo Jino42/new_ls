@@ -6,7 +6,7 @@
 /*   By: ntoniolo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/15 08:35:12 by ntoniolo          #+#    #+#             */
-/*   Updated: 2017/08/17 18:29:52 by ntoniolo         ###   ########.fr       */
+/*   Updated: 2017/08/17 18:31:22 by ntoniolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,17 +55,6 @@ void		btree_apply_infix_print_ls(void *env, void *size_m, t_btree *node,
 		btree_apply_infix_print_ls(env, size_m, btree_child_right(node), apply);
 }
 
-void		btree_apply_infix_reverse_print_ls(void *env, void *size_m, t_btree *node,
-										void (*apply)(void*, void*, void*))
-{
-	if (btree_child_right(node))
-		btree_apply_infix_print_ls(env, size_m, btree_child_right(node), apply);
-	apply(env, size_m, node->content);
-	if (btree_child_left(node))
-		btree_apply_infix_print_ls(env, size_m, btree_child_left(node), apply);
-}
-
-
 void		ls_print_not_here(t_env *e)
 {
 	t_list *l;
@@ -92,10 +81,6 @@ void		ls_print(t_env *e)
 	ls_max_print(e->file, &size_m);
 	if (e->flag & FLAG_L && e->file && e->cur_dir)
 		ft_printf("total %li\n", size_m.total_blocks);
-	if (!(e->flag & FLAG_RV))
-		btree_apply_infix_print_ls((void *)e, (void *)&size_m,
-												e->file, &btree_print);
-	else
-		btree_apply_infix_reverse_print_ls((void *)e, (void *)&size_m,
+	btree_apply_infix_print_ls((void *)e, (void *)&size_m,
 												e->file, &btree_print);
 }
