@@ -6,7 +6,7 @@
 /*   By: ntoniolo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/21 17:59:18 by ntoniolo          #+#    #+#             */
-/*   Updated: 2017/08/16 11:59:19 by ntoniolo         ###   ########.fr       */
+/*   Updated: 2017/08/17 10:45:51 by ntoniolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,12 +44,14 @@ static int		ls_pars_files(t_env *e, char **argv, int i)
 			return (0);
 		if (!(stat(argv[i], &buff) == -1 && lstat(argv[i], &buff) == -1))
 		{
-			elem = ls_create_elem(buff, argv[i]);
 			if (buff.st_mode & S_IFDIR)
 				ft_lstinsert_cmp(&e->dir, ft_lstnew(argv[i],
 							ft_strlen(argv[i]) + 1), e->cmp_str);
 			else
+			{
+				elem = ls_create_elem(buff, ft_strdup(argv[i]));
 				btree_insert_infix_data(&e->file, elem, e->cmp);
+			}
 		}
 		else
 			ft_lstinsert_cmp(&e->not_here, ft_lstnew(argv[i],

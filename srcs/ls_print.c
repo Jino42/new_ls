@@ -6,7 +6,7 @@
 /*   By: ntoniolo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/15 08:35:12 by ntoniolo          #+#    #+#             */
-/*   Updated: 2017/08/16 08:48:48 by ntoniolo         ###   ########.fr       */
+/*   Updated: 2017/08/17 15:43:36 by ntoniolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ static int	ls_condition_print(t_env *e, t_size_m *size_m)
 	return (1);
 }
 
-void		ls_print_minor_major(t_elem *elem, t_size_m *size_m, char *ret_time)
+void		ls_print_minor_major(t_env *e, t_elem *elem, t_size_m *size_m, char *ret_time)
 {
 	ft_printf("%*li, %*li %.*s %s",
 			size_m->major_max, ((elem->st_dev >> 24) & 0xff),
@@ -56,18 +56,19 @@ void		ls_print_minor_major(t_elem *elem, t_size_m *size_m, char *ret_time)
 			&elem->path[elem->ind_last_slash]);
 }
 
-void		ls_print_l(t_elem *elem, t_size_m *size_m)
+void		ls_print_l(t_env *e, t_elem *elem, t_size_m *size_m)
 {
 	char	*ret_time;
 
 	ret_time = ls_ret_time(elem);
+	
 	ft_printf("%s %*li %-*s  %-*s ",
 			elem->mode,
 			size_m->nlink_max + 1, elem->nlink,
 			size_m->p_max, elem->p_name,
 			size_m->g_max, elem->g_name);
 	if (elem->mode[NUM_TYPE] == 'c' || elem->mode[NUM_TYPE] == 'b')
-		ls_print_minor_major(elem, size_m, ret_time);
+		ls_print_minor_major(e, elem, size_m, ret_time);
 	else
 	{
 		ft_printf("%*li %.*s %s",
@@ -80,8 +81,9 @@ void		ls_print_l(t_elem *elem, t_size_m *size_m)
 	ft_printf("\n");
 }
 
-void		ls_print_basic(t_elem *elem)
+void		ls_print_basic(t_env *e, t_elem *elem)
 {
+	(void)e;
 	ft_printf("%s\n", &elem->path[elem->ind_last_slash]);
 }
 
@@ -93,9 +95,9 @@ void		btree_print(void *env, void *size_m, void *ptr_elem)
 	elem = (t_elem*)ptr_elem;
 	e = (t_env *)env;
 	if (e->flag & FLAG_L)
-		ls_print_l(elem, (t_size_m*)size_m);
+		ls_print_l(e, elem, (t_size_m*)size_m);
 	else
-		ls_print_basic(elem);
+		ls_print_basic(e, elem);
 }
 
 void		btree_apply_infix_print_ls(void *env, void *size_m, t_btree *node,
@@ -119,7 +121,6 @@ void		ls_print_not_here(t_env *e)
 						(char *)l->content);
 		l = l->next;
 	}
-	//DO FREE HERE ?
 }
 
 void		ls_print(t_env *e)
@@ -135,5 +136,13 @@ void		ls_print(t_env *e)
 	ls_max_print(e->file, &size_m);
 	if (e->flag & FLAG_L && e->file && e->cur_dir)
 		ft_printf("total %li\n", size_m.total_blocks);
+/*	{
+		ls_putbuffer_str(e, "total ");
+		char *tmp = ft_itoa_base(size_m.total_blocks, 10);
+		ls_putbuffer_str(e, tmp);
+		if (tmp)
+			free(tmp);
+		ls_putbuffer_c(e, '\n');
+	}*/
 	btree_apply_infix_print_ls((void *)e, (void *)&size_m, e->file, &btree_print);
 }

@@ -6,7 +6,7 @@
 /*   By: ntoniolo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/09 18:02:25 by ntoniolo          #+#    #+#             */
-/*   Updated: 2017/08/16 11:29:38 by ntoniolo         ###   ########.fr       */
+/*   Updated: 2017/08/17 10:14:45 by ntoniolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,8 @@ void			btree_depth_insert_left(t_btree *node, void *item);
 void			btree_apply_prefix(t_btree *node, void (*apply)(void *));
 void			btree_apply_infix(t_btree *node, void (*apply)(void *));
 void			btree_apply_suffix(t_btree *node, void (*apply)(void *));
+
+void			btree_apply_free(t_btree *node, void (*apply)(void *));
 
 void			btree_insert_data(t_btree **root, void *item,
 		int (*cmpf)(void *, void*));

@@ -6,7 +6,7 @@
 #    By: ntoniolo <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/02 18:45:43 by ntoniolo          #+#    #+#              #
-#    Updated: 2017/08/16 11:46:52 by ntoniolo         ###   ########.fr        #
+#    Updated: 2017/08/17 10:14:17 by ntoniolo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,6 +34,7 @@ SRC = srcs/btree_create_node.c \
 	  srcs/btree_apply_prefix.c \
 	  srcs/btree_apply_infix.c \
 	  srcs/btree_apply_suffix.c \
+	  srcs/btree_apply_free.c \
 	  srcs/btree_insert_data.c \
 	  srcs/btree_search_item.c \
 	  srcs/btree_insert_infix_data.c \

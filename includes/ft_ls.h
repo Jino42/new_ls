@@ -6,7 +6,7 @@
 /*   By: ntoniolo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/21 11:53:46 by ntoniolo          #+#    #+#             */
-/*   Updated: 2017/08/16 11:58:40 by ntoniolo         ###   ########.fr       */
+/*   Updated: 2017/08/17 15:43:56 by ntoniolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -121,5 +121,13 @@ void			ls_type_and_file_right(t_elem *elem, ssize_t st_mode,
 int				ls_get_dir(t_env *e, char *path);
 t_elem			*ls_create_elem(struct stat buff, char *path);
 int				ls_loop(t_env *e);
+
+void			ls_free_elem(void *ptr_elem);
+void			ls_free_path(void *path, size_t size);
+void			ft_lstdelall(t_list **lst, void (*apply)(void *, size_t));
+
+void			ls_putbuffer_str(t_env *e, char *str);
+void			ls_put_n_c_buffer(t_env *e, char c, size_t len);
+void			ls_putbuffer_c(t_env *e, char c);
 
 #endif

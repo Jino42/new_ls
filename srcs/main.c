@@ -6,7 +6,7 @@
 /*   By: ntoniolo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/21 11:53:16 by ntoniolo          #+#    #+#             */
-/*   Updated: 2017/08/16 09:16:38 by ntoniolo         ###   ########.fr       */
+/*   Updated: 2017/08/17 15:43:13 by ntoniolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,14 @@ static void	ls_print_arg(t_env *e)
 	if (e->not_here)
 	{
 		ls_print_not_here(e);
-		e->not_here = NULL;//free
+		ft_lstdelall(&e->not_here, &ls_free_path);
+		e->not_here = NULL;
 	}
 	if (e->file)
 	{
 		ls_print(e);
-		e->cur_dir++;//free
+		e->cur_dir++;
+		btree_apply_free(e->file, &ls_free_elem);
 		e->file = NULL;
 	}
 }

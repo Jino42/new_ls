@@ -6,7 +6,7 @@
 /*   By: ntoniolo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/15 06:00:40 by ntoniolo          #+#    #+#             */
-/*   Updated: 2017/08/16 10:41:46 by ntoniolo         ###   ########.fr       */
+/*   Updated: 2017/08/17 15:43:15 by ntoniolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,10 +39,17 @@ int			ls_loop(t_env *e)
 		if (e->file && e->flag & FLAG_R)
 			btree_apply_infix_env(e, e->file, &ls_btree_verif_dir);
 		ls_print(e);
-		ft_lst_remove_index(&e->dir, 0); // NEED TO FREE
+		t_list *tmp;
+		tmp = ft_lst_remove_index(&e->dir, 0);
+		if (tmp)
+		{
+			free(tmp->content);
+			free(tmp);
+		}
 		ls_maj_dir(e);
+		if (e->file)
+			btree_apply_free(e->file, &ls_free_elem);
 		e->file = NULL;
-		e->not_here = NULL;
 	}
 	return (1);
 }
