@@ -6,7 +6,7 @@
 /*   By: ntoniolo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/05 20:11:10 by ntoniolo          #+#    #+#             */
-/*   Updated: 2017/08/16 03:33:40 by ntoniolo         ###   ########.fr       */
+/*   Updated: 2017/08/17 17:12:05 by ntoniolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,13 +42,12 @@ static void		ls_set_max_print(t_size_m *size_m)
 
 static void		ls_verif_max(void *ptr_size_m, void *ptr_elem)
 {
-	t_size_m * size_m;
-	t_elem *elem;
-	size_t	temp;
+	t_size_m	*size_m;
+	t_elem		*elem;
+	size_t		temp;
 
 	size_m = (t_size_m*)ptr_size_m;
 	elem = (t_elem*)ptr_elem;
-
 	if (elem->size > size_m->size_max)
 		size_m->size_max = elem->size;
 	if (elem->nlink > size_m->nlink_max)
@@ -68,7 +67,8 @@ static void		ls_verif_max(void *ptr_size_m, void *ptr_elem)
 	size_m->total_blocks += elem->blocks;
 }
 
-void			btree_apply_infix_max_print(void *size_m, t_btree *node, void (*apply)(void*, void*))
+void			btree_apply_infix_max_print(void *size_m, t_btree *node,
+										void (*apply)(void*, void*))
 {
 	if (btree_child_left(node))
 		btree_apply_infix_max_print(size_m, btree_child_left(node), apply);

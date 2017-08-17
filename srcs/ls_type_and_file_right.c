@@ -6,7 +6,7 @@
 /*   By: ntoniolo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/22 23:59:16 by ntoniolo          #+#    #+#             */
-/*   Updated: 2017/08/16 09:23:14 by ntoniolo         ###   ########.fr       */
+/*   Updated: 2017/08/17 17:47:57 by ntoniolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,7 +99,7 @@ void		ls_type_and_file_right(t_elem *elem, ssize_t st_mode,
 		ft_bzero(temp, 1024);
 		if ((readlink(elem->path, temp, sizeof(temp))))
 		{
-			elem->r_lnk = ft_sprintf(" -> %s", temp); // to change
+			elem->r_lnk = ft_sprintf(" -> %s", temp);
 			elem->mode[NUM_TYPE] = 'l';
 			st_mode = buff.st_mode;
 			*ptr_buff = buff;

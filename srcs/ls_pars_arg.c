@@ -6,7 +6,7 @@
 /*   By: ntoniolo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/21 17:59:18 by ntoniolo          #+#    #+#             */
-/*   Updated: 2017/08/17 10:45:51 by ntoniolo         ###   ########.fr       */
+/*   Updated: 2017/08/17 18:26:52 by ntoniolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,19 @@ static void		ls_add_current_dir(t_env *e)
 {
 	struct stat	buff;
 	char		cur[2];
+	t_elem 		*elem;
 
 	cur[0] = '.';
 	cur[1] = '\0';
 	stat(("."), &buff);
-	ft_lstinsert(&e->dir, ft_lstnew(cur, 2));
+	if (!(e->flag & FLAG_D))
+		ft_lstinsert(&e->dir, ft_lstnew(cur, 2));
+	else
+	{
+		elem = ls_create_elem(buff, ft_strdup("."));
+		elem->ind_last_slash = 0;
+		btree_insert_infix_data(&e->file, elem, e->cmp);
+	}
 }
 
 static int		ls_empty_arg(char **argv, int i)
@@ -44,12 +52,13 @@ static int		ls_pars_files(t_env *e, char **argv, int i)
 			return (0);
 		if (!(stat(argv[i], &buff) == -1 && lstat(argv[i], &buff) == -1))
 		{
-			if (buff.st_mode & S_IFDIR)
+			if (buff.st_mode & S_IFDIR && !(e->flag & FLAG_D))
 				ft_lstinsert_cmp(&e->dir, ft_lstnew(argv[i],
 							ft_strlen(argv[i]) + 1), e->cmp_str);
 			else
 			{
 				elem = ls_create_elem(buff, ft_strdup(argv[i]));
+				elem->ind_last_slash = 0;
 				btree_insert_infix_data(&e->file, elem, e->cmp);
 			}
 		}
@@ -66,7 +75,8 @@ static void		ls_assign_ptr_fun(t_env *e)
 {
 	if (e->flag & FLAG_RV)
 	{
-		e->cmp = &cmp_elem_alphabet_reverse;
+		e->cmp = &cmp_elem_alphabet;
+//		e->cmp = &cmp_elem_alphabet_reverse;
 		e->cmp_str = &cmp_str_alphabet_reverse;
 	}
 	else
@@ -77,8 +87,13 @@ static void		ls_assign_ptr_fun(t_env *e)
 	if (e->flag & FLAG_T)
 	{
 		e->cmp = &cmp_elem_time;
-		if (e->flag & FLAG_RV)
-			e->cmp = &cmp_elem_time_reverse;
+//		if (e->flag & FLAG_RV)
+//			e->cmp = &cmp_elem_time_reverse;
+	}
+	if (e->flag & FLAG_U)
+	{
+		e->cmp = &cmp_empty;
+		e->cmp_str = &cmp_empty;
 	}
 }
 

@@ -6,7 +6,7 @@
 /*   By: ntoniolo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/16 08:05:40 by ntoniolo          #+#    #+#             */
-/*   Updated: 2017/08/16 11:58:23 by ntoniolo         ###   ########.fr       */
+/*   Updated: 2017/08/17 18:23:54 by ntoniolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 int			cmp_elem_alphabet(void *s, void *s2)
 {
-	int	i;
-	char *str;
-	char *str2;
+	int		i;
+	char	*str;
+	char	*str2;
 
 	str = ((t_elem*)s)->path;
 	str2 = ((t_elem*)s2)->path;
@@ -38,9 +38,9 @@ int			cmp_elem_alphabet(void *s, void *s2)
 
 int			cmp_elem_alphabet_reverse(void *s, void *s2)
 {
-	int	i;
-	char *str;
-	char *str2;
+	int		i;
+	char	*str;
+	char	*str2;
 
 	str = ((t_elem*)s)->path;
 	str2 = ((t_elem*)s2)->path;
@@ -62,9 +62,9 @@ int			cmp_elem_alphabet_reverse(void *s, void *s2)
 
 int			cmp_str_alphabet(void *s, void *s2)
 {
-	int	i;
-	char *str;
-	char *str2;
+	int		i;
+	char	*str;
+	char	*str2;
 
 	str = (char *)s;
 	str2 = (char *)s2;
@@ -86,9 +86,9 @@ int			cmp_str_alphabet(void *s, void *s2)
 
 int			cmp_str_alphabet_reverse(void *s, void *s2)
 {
-	int	i;
-	char *str;
-	char *str2;
+	int		i;
+	char	*str;
+	char	*str2;
 
 	str = (char *)s;
 	str2 = (char *)s2;
@@ -130,4 +130,11 @@ int			cmp_elem_time_reverse(void *node_elem, void *child_elem)
 	if (node->mtime == child->mtime)
 		return (cmp_str_alphabet_reverse(node->path, child->path));
 	return ((node->mtime > child->mtime));
+}
+
+int			cmp_empty(void *node_elem, void *child_elem)
+{
+	(void)node_elem;
+	(void)child_elem;
+	return (1);
 }

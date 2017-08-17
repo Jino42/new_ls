@@ -6,7 +6,7 @@
 /*   By: ntoniolo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/17 14:34:38 by ntoniolo          #+#    #+#             */
-/*   Updated: 2017/08/17 14:35:18 by ntoniolo         ###   ########.fr       */
+/*   Updated: 2017/08/17 17:10:48 by ntoniolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@ void		ls_free_elem(void *ptr_elem)
 void		ls_free_path(void *content, size_t size)
 {
 	(void)size;
-
 	if (content)
 		ft_strdel((char **)&content);
 }

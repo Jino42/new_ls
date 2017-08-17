@@ -6,7 +6,7 @@
 /*   By: ntoniolo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/21 11:53:46 by ntoniolo          #+#    #+#             */
-/*   Updated: 2017/08/17 15:43:56 by ntoniolo         ###   ########.fr       */
+/*   Updated: 2017/08/17 18:22:44 by ntoniolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,8 @@
 # define FLAG_A (1 << 3)
 # define FLAG_RV (1 << 4)
 # define FLAG_T (1 << 5)
+# define FLAG_D (1 << 6)
+# define FLAG_U (1 << 7)
 
 # define P_FILE 0
 # define P_DIR 1
@@ -98,7 +100,8 @@ int				ls_pars_flag(t_env *e, char **argv, int *i);
 int				ls_pars_arg(t_env *e, int argc, char **argv);
 
 void			ls_print(t_env *e);
-void			ls_print_init(t_env *e);
+void			ls_print_l(t_env *e, t_elem *elem, t_size_m *size_m);
+void			ls_print_basic(t_env *e, t_elem *elem);
 void			ls_print_not_here(t_env *e);
 
 int				cmp_elem_alphabet(void *s, void *s2);
@@ -107,10 +110,9 @@ int				cmp_elem_time(void *node, void *child);
 int				cmp_elem_time_reverse(void *node, void *child);
 int				cmp_str_alphabet(void *s, void *s2);
 int				cmp_str_alphabet_reverse(void *s, void *s2);
+int				cmp_empty(void *a, void *b);
 
 void			ls_max_print(t_btree *root, t_size_m *size_m);
-
-int				diff_alphabet(void *s, void *s2);
 
 void			ft_lstinsert_cmp(t_list **list, t_list *new, int (*cmp)(void *, void *));
 t_list			*ft_lst_remove_index(t_list **lst, size_t index);
@@ -125,9 +127,5 @@ int				ls_loop(t_env *e);
 void			ls_free_elem(void *ptr_elem);
 void			ls_free_path(void *path, size_t size);
 void			ft_lstdelall(t_list **lst, void (*apply)(void *, size_t));
-
-void			ls_putbuffer_str(t_env *e, char *str);
-void			ls_put_n_c_buffer(t_env *e, char c, size_t len);
-void			ls_putbuffer_c(t_env *e, char c);
 
 #endif

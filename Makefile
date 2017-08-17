@@ -6,7 +6,7 @@
 #    By: ntoniolo <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/02 18:45:43 by ntoniolo          #+#    #+#              #
-#    Updated: 2017/08/17 15:43:58 by ntoniolo         ###   ########.fr        #
+#    Updated: 2017/08/17 17:10:11 by ntoniolo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,6 +31,7 @@ SRC = main.c \
 	  ls_stat_create_leaf.c \
 	  ls_pars_arg.c \
 	  ls_pars_flag.c \
+	  ls_print_files.c \
 	  ls_btree_verif_dir.c \
 
 SRC_DIR = srcs/
