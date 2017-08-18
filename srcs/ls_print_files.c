@@ -6,7 +6,7 @@
 /*   By: ntoniolo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/17 17:10:03 by ntoniolo          #+#    #+#             */
-/*   Updated: 2017/08/18 14:12:44 by ntoniolo         ###   ########.fr       */
+/*   Updated: 2017/08/18 14:53:41 by ntoniolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,13 +65,18 @@ void		ls_print_l(t_env *e, t_elem *elem, t_size_m *size_m)
 	}
 	if (elem->mode[NUM_TYPE] == 'l')
 		ft_printf("%s", elem->r_lnk);
+	else if (e->flag & FLAG_P && elem->mode[NUM_TYPE] == 'd')
+		ft_putchar('/');
 	ft_printf("\n");
 }
 
 void		ls_print_basic(t_env *e, t_elem *elem)
 {
+	e->index_files++;
 	ft_printf("%s", &elem->path[elem->ind_last_slash]);
-	if (e->flag & FLAG_M)
+	if (e->flag & FLAG_P && elem->mode[NUM_TYPE] == 'd')
+		ft_putchar('/');
+	if (e->flag & FLAG_M && e->index_files != e->nb_files)
 		ft_putstr(", ");
 	else
 		ft_putchar('\n');

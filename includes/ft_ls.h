@@ -6,7 +6,7 @@
 /*   By: ntoniolo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/21 11:53:46 by ntoniolo          #+#    #+#             */
-/*   Updated: 2017/08/18 14:10:43 by ntoniolo         ###   ########.fr       */
+/*   Updated: 2017/08/18 15:45:38 by ntoniolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,10 @@
 # define MAX_YEARS 253375970400
 # define PRINT_DATE 15778800
 
+# define NB_FLAGS 16
+# define STR_FLAGS "1lRartdUScuifAmp"
+
+# define FLAG_ONE (1 << 0)
 # define FLAG_L (1 << 1)
 # define FLAG_R (1 << 2)
 # define FLAG_A (1 << 3)
@@ -52,6 +56,7 @@
 # define FLAG_F (1 << 12)
 # define FLAG_BA (1 << 13)
 # define FLAG_M (1 << 14)
+# define FLAG_P (1 << 15)
 
 # define P_FILE 0
 # define P_DIR 1
@@ -91,7 +96,8 @@ typedef struct	s_env
 	int			flag;
 	int			a;
 	int			nb_arg;
-	int			test;
+	int			nb_files;
+	int			index_files;
 	int			cur_dir;
 	int			(*cmp)(void *, void *);
 	int			(*cmp_str)(void *, void *);

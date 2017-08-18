@@ -6,7 +6,7 @@
 /*   By: ntoniolo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/21 17:59:18 by ntoniolo          #+#    #+#             */
-/*   Updated: 2017/08/18 14:11:33 by ntoniolo         ###   ########.fr       */
+/*   Updated: 2017/08/18 15:07:01 by ntoniolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ static int		ls_pars_files(t_env *e, char **argv, int i)
 			return (0);
 		if (!(stat(argv[i], &buff) == -1 && lstat(argv[i], &buff) == -1))
 		{
-			if (buff.st_mode & S_IFDIR && !(e->flag & FLAG_D))
+			if (buff.st_mode & S_IFDIR && !(e->flag & FLAG_D || e->flag & FLAG_P))
 				ft_lstinsert_dir(&e->dir, ft_lstnew(argv[i],
 							ft_strlen(argv[i]) + 1), e->cmp_str, e->flag & FLAG_RV);
 			else

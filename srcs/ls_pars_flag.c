@@ -6,7 +6,7 @@
 /*   By: ntoniolo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/16 09:03:45 by ntoniolo          #+#    #+#             */
-/*   Updated: 2017/08/18 14:10:32 by ntoniolo         ###   ########.fr       */
+/*   Updated: 2017/08/18 15:46:10 by ntoniolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,44 +15,22 @@
 static int	ls_get_flag(t_env *e, char **argv, int i)
 {
 	int i_in;
+	char strf[NB_FLAGS];
+	char *ptr;
 
+	ft_strcpy(strf, STR_FLAGS);
 	i_in = 1;
 	while (argv[i][i_in])
 	{
-		if (argv[i][i_in] == 'l')
-			e->flag |= FLAG_L;
-		else if (argv[i][i_in] == 'R')
-			e->flag |= FLAG_R;
-		else if (argv[i][i_in] == 'a')
-			e->flag |= FLAG_A;
-		else if (argv[i][i_in] == 't')
-			e->flag |= FLAG_T;
-		else if (argv[i][i_in] == 'r')
-			e->flag |= FLAG_RV;
-		else if (argv[i][i_in] == 'd')
-			e->flag |= FLAG_D;
-		else if (argv[i][i_in] == 'U')
-			e->flag |= FLAG_U;
-		else if (argv[i][i_in] == 'S')
-			e->flag |= FLAG_SS;
-		else if (argv[i][i_in] == 'c')
-			e->flag |= FLAG_C;
-		else if (argv[i][i_in] == 'u')
-			e->flag |= FLAG_PU;
-		else if (argv[i][i_in] == 'i')
-			e->flag |= FLAG_I;
-		else if (argv[i][i_in] == 'f')
-			e->flag |= FLAG_F;
-		else if (argv[i][i_in] == 'A')
-			e->flag |= FLAG_BA;
-		else if (argv[i][i_in] == 'M')
-			e->flag |= FLAG_M;
-		else if (argv[i][i_in] != '1')
+		ptr = NULL;
+		if (!(ptr = ft_strchr(strf, argv[i][i_in])))
 		{
 			ft_dprintf(2, "ls: illegal option -- %c\n", argv[i][i_in]);
-			ft_dprintf(2, "usage: ls [-1RatrdUScuifA] [file ...]\n");
+			ft_dprintf(2, "usage: ls [-1RatrdUScuifAmp] [file ...]\n");
 			return (0);
 		}
+		else
+			e->flag |= (1 << (ptr - strf));
 		i_in++;
 	}
 	return (1);
