@@ -6,7 +6,7 @@
 /*   By: ntoniolo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/21 17:59:18 by ntoniolo          #+#    #+#             */
-/*   Updated: 2017/08/18 12:21:16 by ntoniolo         ###   ########.fr       */
+/*   Updated: 2017/08/18 14:11:33 by ntoniolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,8 +80,24 @@ static void		ls_assign_ptr_fun(t_env *e)
 		e->cmp = &cmp_empty;
 		e->cmp_str = &cmp_empty;
 	}
-//	if (e->flag & FLAG_T)
-//		e->cmp = &cmp_elem_mtime;
+	if (e->flag & FLAG_BA)
+		e->flag |= FLAG_A;
+	if (e->flag & FLAG_F)
+	{
+		e->cmp = &cmp_empty;
+		e->cmp_str = &cmp_empty;
+		e->flag |= FLAG_A;
+		e->flag |= FLAG_U;
+		if (e->flag & FLAG_T)
+			e->flag ^= FLAG_T;
+		if (e->flag & FLAG_RV)
+			e->flag ^= FLAG_RV;
+	}
+	if (e->flag & FLAG_M)
+	{
+		if (e->flag & FLAG_L)
+			e->flag ^= FLAG_L;
+	}
 	if (e->flag & FLAG_C || e->flag & FLAG_PU || e->flag & FLAG_T)
 		e->cmp = &cmp_elem_time;
 	if (e->flag & FLAG_SS)

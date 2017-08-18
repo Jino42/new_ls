@@ -6,7 +6,7 @@
 /*   By: ntoniolo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/21 11:53:46 by ntoniolo          #+#    #+#             */
-/*   Updated: 2017/08/18 12:36:06 by ntoniolo         ###   ########.fr       */
+/*   Updated: 2017/08/18 14:10:43 by ntoniolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,9 @@
 # define FLAG_C (1 << 9)
 # define FLAG_PU (1 << 10)
 # define FLAG_I (1 << 11)
+# define FLAG_F (1 << 12)
+# define FLAG_BA (1 << 13)
+# define FLAG_M (1 << 14)
 
 # define P_FILE 0
 # define P_DIR 1
@@ -88,6 +91,7 @@ typedef struct	s_env
 	int			flag;
 	int			a;
 	int			nb_arg;
+	int			test;
 	int			cur_dir;
 	int			(*cmp)(void *, void *);
 	int			(*cmp_str)(void *, void *);

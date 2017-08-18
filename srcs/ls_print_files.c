@@ -6,7 +6,7 @@
 /*   By: ntoniolo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/17 17:10:03 by ntoniolo          #+#    #+#             */
-/*   Updated: 2017/08/18 12:24:16 by ntoniolo         ###   ########.fr       */
+/*   Updated: 2017/08/18 14:12:44 by ntoniolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,16 @@ static char	*ls_ret_time(t_env *e, t_elem *elem)
 	cur = time(NULL);
 	ret_time = ctime((const time_t *)(&elem->time));
 	if (cur - elem->time > PRINT_DATE)
+	{
 		ft_strcpy(&ret_time[11], &ret_time[19]);
+	}
 	else if (cur - elem->time < 0)
+	{
+		if (cur - elem->time < -PRINT_DATE && elem->time < MAX_YEARS)
+		ft_strcpy(&ret_time[11], &ret_time[19]);
+		else
 		ft_strcpy(&ret_time[10], &ret_time[22]);
+	}
 	return (ret_time);
 }
 
@@ -63,6 +70,9 @@ void		ls_print_l(t_env *e, t_elem *elem, t_size_m *size_m)
 
 void		ls_print_basic(t_env *e, t_elem *elem)
 {
-	(void)e;
-	ft_printf("%s\n", &elem->path[elem->ind_last_slash]);
+	ft_printf("%s", &elem->path[elem->ind_last_slash]);
+	if (e->flag & FLAG_M)
+		ft_putstr(", ");
+	else
+		ft_putchar('\n');
 }
