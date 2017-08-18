@@ -6,7 +6,7 @@
 /*   By: ntoniolo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/15 08:35:12 by ntoniolo          #+#    #+#             */
-/*   Updated: 2017/08/17 18:31:22 by ntoniolo         ###   ########.fr       */
+/*   Updated: 2017/08/18 12:36:56 by ntoniolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,8 @@ void		btree_print(void *env, void *size_m, void *ptr_elem)
 
 	elem = (t_elem*)ptr_elem;
 	e = (t_env *)env;
+	if (e->flag & FLAG_I)
+		ft_printf("%*ld ", ((t_size_m*)size_m)->ino_max, elem->st_ino);
 	if (e->flag & FLAG_L)
 		ls_print_l(e, elem, (t_size_m*)size_m);
 	else

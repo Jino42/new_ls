@@ -6,7 +6,7 @@
 /*   By: ntoniolo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/22 23:59:16 by ntoniolo          #+#    #+#             */
-/*   Updated: 2017/08/17 17:47:57 by ntoniolo         ###   ########.fr       */
+/*   Updated: 2017/08/18 11:05:24 by ntoniolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,12 +87,13 @@ static void	type_of_file(ssize_t st_mode, char *tab)
 		tab[NUM_TYPE] = 'p';
 }
 
-void		ls_type_and_file_right(t_elem *elem, ssize_t st_mode,
+void		ls_type_and_file_right(t_env *e, t_elem *elem, ssize_t st_mode,
 											struct stat *ptr_buff)
 {
 	struct stat	buff;
 	char		temp[1024];
 
+	(void)e;
 	lstat(elem->path, &buff);
 	if ((buff.st_mode & S_IFMT) == S_IFLNK)
 	{

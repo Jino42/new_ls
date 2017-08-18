@@ -6,7 +6,7 @@
 /*   By: ntoniolo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/05 20:11:10 by ntoniolo          #+#    #+#             */
-/*   Updated: 2017/08/17 17:12:05 by ntoniolo         ###   ########.fr       */
+/*   Updated: 2017/08/18 12:36:32 by ntoniolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ static void		ls_set_max_print(t_size_m *size_m)
 	if (size_m->major_max)
 		size_m->major_max += 2;
 	size_m->size_max += size_m->major_max + size_m->minor_max;
+	size_m->ino_max = count_nb(size_m->ino_max);
 }
 
 static void		ls_verif_max(void *ptr_size_m, void *ptr_elem)
@@ -58,12 +59,14 @@ static void		ls_verif_max(void *ptr_size_m, void *ptr_elem)
 	temp = ft_strlen(elem->g_name);
 	if (temp > size_m->g_max)
 		size_m->g_max = temp;
-	if (elem->mtime > MAX_YEARS)
+	if (elem->time > MAX_YEARS)
 		size_m->years_max = 1;
 	if (((elem->st_dev >> 24) & 0xff) > size_m->major_max)
 		size_m->major_max = ((elem->st_dev >> 24) & 0xff);
 	if ((elem->st_dev & 0xff) > size_m->minor_max)
 		size_m->minor_max = (elem->st_dev & 0xff);
+	if (elem->st_ino > size_m->ino_max)
+		size_m->ino_max = elem->st_ino;
 	size_m->total_blocks += elem->blocks;
 }
 

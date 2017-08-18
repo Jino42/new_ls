@@ -6,7 +6,7 @@
 /*   By: ntoniolo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/16 08:05:40 by ntoniolo          #+#    #+#             */
-/*   Updated: 2017/08/17 19:25:21 by ntoniolo         ###   ########.fr       */
+/*   Updated: 2017/08/18 12:23:47 by ntoniolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,9 +67,9 @@ int			cmp_elem_time(void *node_elem, void *child_elem)
 
 	node = (t_elem *)node_elem;
 	child = (t_elem *)child_elem;
-	if (node->mtime == child->mtime)
+	if (node->time == child->time)
 		return (cmp_str_alphabet(node->path, child->path));
-	return ((node->mtime < child->mtime));
+	return ((node->time < child->time));
 }
 
 int			cmp_elem_size(void *node_elem, void *child_elem)

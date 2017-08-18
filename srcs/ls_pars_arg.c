@@ -6,7 +6,7 @@
 /*   By: ntoniolo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/21 17:59:18 by ntoniolo          #+#    #+#             */
-/*   Updated: 2017/08/17 19:23:33 by ntoniolo         ###   ########.fr       */
+/*   Updated: 2017/08/18 12:21:16 by ntoniolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ static void		ls_add_current_dir(t_env *e)
 		ft_lstinsert(&e->dir, ft_lstnew(cur, 2));
 	else
 	{
-		elem = ls_create_elem(buff, ft_strdup("."));
+		elem = ls_create_elem(e, buff, ft_strdup("."));
 		elem->ind_last_slash = 0;
 		btree_insert_infix_data_ls(&e->file, elem, e->cmp, e->flag & FLAG_RV);
 	}
@@ -57,7 +57,7 @@ static int		ls_pars_files(t_env *e, char **argv, int i)
 							ft_strlen(argv[i]) + 1), e->cmp_str, e->flag & FLAG_RV);
 			else
 			{
-				elem = ls_create_elem(buff, ft_strdup(argv[i]));
+				elem = ls_create_elem(e, buff, ft_strdup(argv[i]));
 				elem->ind_last_slash = 0;
 				btree_insert_infix_data_ls(&e->file, elem, e->cmp, e->flag & FLAG_RV);
 			}
@@ -80,7 +80,9 @@ static void		ls_assign_ptr_fun(t_env *e)
 		e->cmp = &cmp_empty;
 		e->cmp_str = &cmp_empty;
 	}
-	if (e->flag & FLAG_T)
+//	if (e->flag & FLAG_T)
+//		e->cmp = &cmp_elem_mtime;
+	if (e->flag & FLAG_C || e->flag & FLAG_PU || e->flag & FLAG_T)
 		e->cmp = &cmp_elem_time;
 	if (e->flag & FLAG_SS)
 		e->cmp = &cmp_elem_size;

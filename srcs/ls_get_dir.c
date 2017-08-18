@@ -6,7 +6,7 @@
 /*   By: ntoniolo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/26 07:28:53 by ntoniolo          #+#    #+#             */
-/*   Updated: 2017/08/17 18:46:47 by ntoniolo         ###   ########.fr       */
+/*   Updated: 2017/08/17 19:33:05 by ntoniolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static int		ls_add_file_to_btree(t_env *e, char *path, struct dirent *dir)
 	temp = ft_sprintf("%s/%s", path, dir->d_name);
 	if (!(stat(temp, &buff) == -1 && lstat(temp, &buff) == -1))
 		btree_insert_infix_data_ls(&e->file,
-				ls_create_elem(buff, temp), e->cmp, e->flag & FLAG_RV);
+				ls_create_elem(e, buff, temp), e->cmp, e->flag & FLAG_RV);
 	else
 		free(temp);
 	return (1);

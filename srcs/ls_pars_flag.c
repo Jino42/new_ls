@@ -6,7 +6,7 @@
 /*   By: ntoniolo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/16 09:03:45 by ntoniolo          #+#    #+#             */
-/*   Updated: 2017/08/17 19:00:15 by ntoniolo         ###   ########.fr       */
+/*   Updated: 2017/08/18 12:27:58 by ntoniolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,10 +35,16 @@ static int	ls_get_flag(t_env *e, char **argv, int i)
 			e->flag |= FLAG_U;
 		else if (argv[i][i_in] == 'S')
 			e->flag |= FLAG_SS;
+		else if (argv[i][i_in] == 'c')
+			e->flag |= FLAG_C;
+		else if (argv[i][i_in] == 'u')
+			e->flag |= FLAG_PU;
+		else if (argv[i][i_in] == 'i')
+			e->flag |= FLAG_I;
 		else if (argv[i][i_in] != '1')
 		{
 			ft_dprintf(2, "ls: illegal option -- %c\n", argv[i][i_in]);
-			ft_dprintf(2, "usage: ls [-RlartdU] [file ...]\n");
+			ft_dprintf(2, "usage: ls [-RlartdUScu] [file ...]\n");
 			return (0);
 		}
 		i_in++;

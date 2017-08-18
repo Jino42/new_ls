@@ -6,7 +6,7 @@
 /*   By: ntoniolo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/21 11:53:46 by ntoniolo          #+#    #+#             */
-/*   Updated: 2017/08/17 19:14:45 by ntoniolo         ###   ########.fr       */
+/*   Updated: 2017/08/18 12:36:06 by ntoniolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,9 @@
 # define FLAG_D (1 << 6)
 # define FLAG_U (1 << 7)
 # define FLAG_SS (1 << 8)
+# define FLAG_C (1 << 9)
+# define FLAG_PU (1 << 10)
+# define FLAG_I (1 << 11)
 
 # define P_FILE 0
 # define P_DIR 1
@@ -60,18 +63,18 @@ typedef struct	s_size_m
 	size_t total_blocks;
 	size_t minor_max;
 	size_t major_max;
+	size_t ino_max;
 }				t_size_m;
 
 typedef struct	s_elem
 {
+	long		st_ino;
 	char		right;
 	char		*path;
 	char		mode[11];
 	size_t		ind_last_slash;
 	size_t		size;
-	time_t		atime;
-	time_t		mtime;
-	time_t		ctime;
+	time_t		time;
 	size_t		nlink;
 	size_t		blocks;
 	char		*p_name;
@@ -118,10 +121,10 @@ void			ft_lstinsert_dir(t_list **list, t_list *new, int (*cmp)(void *, void *), 
 t_list			*ft_lst_remove_index(t_list **lst, size_t index);
 
 t_btree			*ls_stat_create_leaf(t_env *e, struct stat buff, char *path);
-void			ls_type_and_file_right(t_elem *elem, ssize_t st_mode,
+void			ls_type_and_file_right(t_env *e, t_elem *elem, ssize_t st_mode,
 		struct stat *ptr_buff);
 int				ls_get_dir(t_env *e, char *path);
-t_elem			*ls_create_elem(struct stat buff, char *path);
+t_elem			*ls_create_elem(t_env *e, struct stat buff, char *path);
 int				ls_loop(t_env *e);
 
 void			ls_free_elem(void *ptr_elem);
