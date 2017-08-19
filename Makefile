@@ -6,7 +6,7 @@
 #    By: ntoniolo <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/02 18:45:43 by ntoniolo          #+#    #+#              #
-#    Updated: 2017/08/19 15:38:23 by ntoniolo         ###   ########.fr        #
+#    Updated: 2017/08/19 16:21:40 by ntoniolo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -52,22 +52,13 @@ OBJ_DIR = objs/
 .PHONY: all, clean, fclean, re, $(NAME), lft, start, end
 
 
-all: $(OBJ_DIR) $(NAME)
+all: $(NAME)
 
-$(NAME): lib $(addprefix $(OBJ_DIR), $(OBJET)) $(INC_FILES)
+$(NAME): lib $(OBJ_DIR) $(addprefix $(OBJ_DIR), $(OBJET)) $(INC_FILES)
 	@$(CC) $(MODE) $(FLAGS) -I$(INC) $(addprefix $(OBJ_DIR), $(OBJET)) -L./$(DIR_LFT) -lft -L./$(DIR_TREE) -lbtree -o $(NAME)
-	@echo "\033[4m\033[1m\033[32m>$(NAME) done.\033[0m"
 
 $(OBJ_DIR) :
 	@mkdir $(OBJ_DIR)
-	#@mkdir $(DIR_LIB)
-	#@mkdir $(OBJ_DIR)/event
-
-start:
-	@echo "\033[4m\033[33mCreation de $(NAME)   ...\033[0m"
-
-end:
-	@echo "\033[4m\033[1m\033[32m>$(NAME) done.\033[0m"
 
 $(OBJ_DIR)%.o: $(addprefix $(SRC_DIR), %.c) $(INC_FILES)
 	@echo "\033[34m$^ \033[0m-> \033[1m\033[37m$@\033[0m"
@@ -76,7 +67,6 @@ $(OBJ_DIR)%.o: $(addprefix $(SRC_DIR), %.c) $(INC_FILES)
 lib:
 	@(cd $(DIR_LFT) && $(MAKE))
 	@(cd $(DIR_TREE) && $(MAKE))
-#	@(cp $(DIR_LFT)libft.a ./libs/)
 
 clean:
 	@/bin/rm -rf $(OBJ_DIR)
@@ -85,7 +75,6 @@ clean:
 
 fclean: clean
 	@/bin/rm -f $(NAME)
-#	@(rm -rf $(DIR_LIB))
 	@(cd $(DIR_LFT) && make fclean)
 	@(cd $(DIR_TREE) && make fclean)
 

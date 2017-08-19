@@ -6,7 +6,7 @@
 #    By: ntoniolo <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/02 18:45:43 by ntoniolo          #+#    #+#              #
-#    Updated: 2017/06/24 15:08:04 by ntoniolo         ###   ########.fr        #
+#    Updated: 2017/08/19 16:13:10 by ntoniolo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,9 +33,9 @@ SRC = basic/ft_memset.c basic/ft_bzero.c basic/ft_memcpy.c basic/ft_memccpy.c ba
 
 OBJET = $(SRC:.c=.o)
 
-.PHONY: all, clean, fclean, re, $(NAME)
+.PHONY: all, clean, fclean, re
 
-all: start $(NAME) end
+all: $(NAME)
 
 $(NAME): $(OBJET)
 	@ar rc $(NAME) $(OBJET) && ranlib $(NAME)
