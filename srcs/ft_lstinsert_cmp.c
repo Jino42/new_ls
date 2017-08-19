@@ -6,13 +6,13 @@
 /*   By: ntoniolo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/16 11:36:55 by ntoniolo          #+#    #+#             */
-/*   Updated: 2017/08/17 18:51:07 by ntoniolo         ###   ########.fr       */
+/*   Updated: 2017/08/19 14:42:56 by ntoniolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
 
-static void	init(t_list **lst, t_list **past, t_list **cur, t_list *new)
+static void		init(t_list **lst, t_list **past, t_list **cur, t_list *new)
 {
 	*past = NULL;
 	*cur = *lst;
@@ -74,7 +74,7 @@ static void		ft_lstinsert_cmp_reverse(t_list **lst, t_list *new,
 		past->next = new;
 }
 
-void		ft_lstinsert_dir(t_list **lst, t_list *new,
+void			ft_lstinsert_dir(t_list **lst, t_list *new,
 					int (*cmp)(void *, void *), int reverse)
 {
 	if (reverse)

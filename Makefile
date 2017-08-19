@@ -6,7 +6,7 @@
 #    By: ntoniolo <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/02 18:45:43 by ntoniolo          #+#    #+#              #
-#    Updated: 2017/08/17 18:46:56 by ntoniolo         ###   ########.fr        #
+#    Updated: 2017/08/19 15:38:23 by ntoniolo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ DIR_LFT = libft/
 DIR_TREE = minilibtree/
 DIR_LIB = libs/
 CFLAGS = -Wall -Werror -Wextra
-FLAGS =  -g -I ./include/
+FLAGS = $(CFLAGS) -I ./include/
 
 SRC = main.c \
 	  ls_loop.c \
@@ -32,7 +32,7 @@ SRC = main.c \
 	  ls_pars_arg.c \
 	  ls_pars_flag.c \
 	  ls_print_files.c \
-	  ls_fun_sort.c \
+	  btree_insert_infix_data_ls.c \
 	  ls_btree_verif_dir.c \
 
 SRC_DIR = srcs/

@@ -6,7 +6,7 @@
 /*   By: ntoniolo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/17 17:10:03 by ntoniolo          #+#    #+#             */
-/*   Updated: 2017/08/18 14:53:41 by ntoniolo         ###   ########.fr       */
+/*   Updated: 2017/08/19 15:37:50 by ntoniolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ static char	*ls_ret_time(t_env *e, t_elem *elem)
 	char	*ret_time;
 	time_t	cur;
 
+	(void)e;
 	ret_time = NULL;
 	cur = time(NULL);
 	ret_time = ctime((const time_t *)(&elem->time));
@@ -27,9 +28,9 @@ static char	*ls_ret_time(t_env *e, t_elem *elem)
 	else if (cur - elem->time < 0)
 	{
 		if (cur - elem->time < -PRINT_DATE && elem->time < MAX_YEARS)
-		ft_strcpy(&ret_time[11], &ret_time[19]);
+			ft_strcpy(&ret_time[11], &ret_time[19]);
 		else
-		ft_strcpy(&ret_time[10], &ret_time[22]);
+			ft_strcpy(&ret_time[10], &ret_time[22]);
 	}
 	return (ret_time);
 }
@@ -37,6 +38,7 @@ static char	*ls_ret_time(t_env *e, t_elem *elem)
 void		ls_print_minor_major(t_env *e, t_elem *elem, t_size_m *size_m,
 										char *ret_time)
 {
+	(void)e;
 	ft_printf("%*li, %*li %.*s %s",
 			size_m->major_max, ((elem->st_dev >> 24) & 0xff),
 			size_m->minor_max, (int)((elem->st_dev) & 0xff),

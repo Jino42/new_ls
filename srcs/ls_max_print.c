@@ -6,7 +6,7 @@
 /*   By: ntoniolo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/05 20:11:10 by ntoniolo          #+#    #+#             */
-/*   Updated: 2017/08/18 12:36:32 by ntoniolo         ###   ########.fr       */
+/*   Updated: 2017/08/19 15:36:16 by ntoniolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ static void		ls_verif_max(void *ptr_size_m, void *ptr_elem)
 		size_m->major_max = ((elem->st_dev >> 24) & 0xff);
 	if ((elem->st_dev & 0xff) > size_m->minor_max)
 		size_m->minor_max = (elem->st_dev & 0xff);
-	if (elem->st_ino > size_m->ino_max)
+	if ((size_t)elem->st_ino > size_m->ino_max)
 		size_m->ino_max = elem->st_ino;
 	size_m->total_blocks += elem->blocks;
 }

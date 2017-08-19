@@ -6,7 +6,7 @@
 /*   By: ntoniolo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/15 02:00:44 by ntoniolo          #+#    #+#             */
-/*   Updated: 2017/08/18 12:28:32 by ntoniolo         ###   ########.fr       */
+/*   Updated: 2017/08/19 15:24:26 by ntoniolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ t_elem			*ls_create_elem(t_env *e, struct stat buff, char *path)
 	passwd = NULL;
 	group = NULL;
 	if (!(elem = ft_memalloc(sizeof(t_elem))))
-		exit(0);
+		return (NULL);
 	ft_memset(elem->mode, '-', sizeof(char) * 10);
 	elem->path = path;
 	ls_type_and_file_right(e, elem, buff.st_mode, &buff);

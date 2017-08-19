@@ -6,7 +6,7 @@
 /*   By: ntoniolo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/16 09:03:45 by ntoniolo          #+#    #+#             */
-/*   Updated: 2017/08/18 15:46:10 by ntoniolo         ###   ########.fr       */
+/*   Updated: 2017/08/19 14:59:26 by ntoniolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 static int	ls_get_flag(t_env *e, char **argv, int i)
 {
-	int i_in;
-	char strf[NB_FLAGS];
-	char *ptr;
+	int		i_in;
+	char	strf[NB_FLAGS];
+	char	*ptr;
 
 	ft_strcpy(strf, STR_FLAGS);
 	i_in = 1;
@@ -34,6 +34,34 @@ static int	ls_get_flag(t_env *e, char **argv, int i)
 		i_in++;
 	}
 	return (1);
+}
+
+static void	ls_assign_ptr_fun(t_env *e)
+{
+	e->cmp = &cmp_elem_alphabet;
+	e->cmp_str = &cmp_str_alphabet;
+	if (e->flag & FLAG_U || e->flag & FLAG_F)
+	{
+		e->cmp = &cmp_empty;
+		e->cmp_str = &cmp_empty;
+	}
+	if (e->flag & FLAG_BA)
+		e->flag |= FLAG_A;
+	if (e->flag & FLAG_F)
+	{
+		e->flag |= FLAG_A | FLAG_U;
+		if (e->flag & FLAG_T)
+			e->flag ^= FLAG_T;
+		if (e->flag & FLAG_RV)
+			e->flag ^= FLAG_RV;
+	}
+	if (e->flag & FLAG_M)
+		if (e->flag & FLAG_L)
+			e->flag ^= FLAG_L;
+	if (e->flag & FLAG_C || e->flag & FLAG_PU || e->flag & FLAG_T)
+		e->cmp = &cmp_elem_time;
+	if (e->flag & FLAG_SS)
+		e->cmp = &cmp_elem_size;
 }
 
 int			ls_pars_flag(t_env *e, char **argv, int *i)
@@ -54,5 +82,6 @@ int			ls_pars_flag(t_env *e, char **argv, int *i)
 			return (0);
 		(*i)++;
 	}
+	ls_assign_ptr_fun(e);
 	return (1);
 }

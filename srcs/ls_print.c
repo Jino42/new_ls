@@ -6,13 +6,13 @@
 /*   By: ntoniolo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/15 08:35:12 by ntoniolo          #+#    #+#             */
-/*   Updated: 2017/08/18 14:15:24 by ntoniolo         ###   ########.fr       */
+/*   Updated: 2017/08/19 15:36:49 by ntoniolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
 
-static int	ls_condition_print(t_env *e, t_size_m *size_m)
+static int	ls_condition_print(t_env *e)
 {
 	void *ptr;
 
@@ -72,10 +72,9 @@ void		ls_print_not_here(t_env *e)
 
 void		ls_print(t_env *e)
 {
-	t_elem		*elem;
 	t_size_m	size_m;
 
-	if (!(ls_condition_print(e, &size_m)))
+	if (!(ls_condition_print(e)))
 		return ;
 	if (!e->file)
 		return ;
